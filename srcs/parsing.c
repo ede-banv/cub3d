@@ -6,43 +6,17 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 13:29:05 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/03 17:51:53 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/03 19:12:13 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include "structures.h"
+//impotant to work on error messages. make sure the error messages are sent for each problem. or maybe just send a general error for all .cub3d files?
+//structure for error???????????
 #include "utils/utils.h"
+#include "cub3d.h"
 //xpm to image man new_image pr les texture xdxdxdxd merci mli xdxdxd
-
-int             ft_atoipositif(char **str)
-{
-    int n;
-    int i;
-
-    n = 0;
-    i = 0;
-    while (**str == ' ')
-        (*str)++;
-    if (**str == '-')
-        return (-1);
-    while (**str >= '0' && **str <= '9')
-    {
-        n = (n * 10) + (**str - 48);
-        (*str)++;
-    }
-    if (i != 0)
-        return (n);
-    else
-        return (-1);
-}
-
-char    *skipspace(char *str, int r)
-{
-    while (*str == (r == 2 ? ' ' : '\n')) //if 2 skip space else skip \n
-        str++;
-    return (str);
-}
+//maybe make individual functions to check each parameter to make sure there are no value errors.
+//make sure to have a function to check errors and show the correct error message.
 
 int     ft_freeer(char **res, t_pars *pars)
 {
@@ -53,9 +27,6 @@ int     ft_freeer(char **res, t_pars *pars)
     }
     return (pars);
 }
-//maybe make individual functions to check each parameter to make sure there are no value errors.
-//make sure to have a function to check errors and show the correct error message.
-//pars w gnl.
 
 char    *restocklol(char **res, char *autre, int n)
 {
@@ -94,11 +65,28 @@ char    *reading(int fd)
     return (res);
 }
 
-t_pars  *parsing(t_pars *pars, char *res)
+int     checkfile(char *file)
 {
-    while (*res != 'R')
-        res++;
-    
+    int     len;
+    int     i;
+    int     j;
+    char    cub[4];
+
+    if (!file)
+        return (-1);
+    len = ft_strlen(file);
+    i = len - 5;
+    j = 0;
+    *cub = ".cub";
+    while (i < len)
+    {
+        if (file[i++] == cub[j])
+            j++;
+    }
+    if (j == 4)
+        return (1);
+    else
+        return (0);
 }
 
 t_pars  *ft_open(char *file)
@@ -107,6 +95,8 @@ t_pars  *ft_open(char *file)
     char    *res;
     int     fd;
 
+    if (checkfile(file) == 0)
+        return (NULL);
     if ((fd = open(file, O_RDONLY)) == -1)
         return (NULL);
     if (!(res = reading(fd)))
@@ -115,6 +105,7 @@ t_pars  *ft_open(char *file)
         return (ft_freeer(&res, NULL));
     return (ft_freeer(&res, pars));
 }
+
 /*
 int main(int ac, char **av)
 {
