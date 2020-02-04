@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 19:05:37 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/03 19:41:50 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/04 14:13:42 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int             ft_atoipositif(char **str)
         (*str)++;
     if (**str == '-')
         return (-1);
-    while (**str >= '0' && **str <= '9')
+    while (**str >= '0' && **str <= '9' && i++)
     {
         n = (n * 10) + (**str - 48);
         (*str)++;
@@ -43,27 +43,55 @@ char    *skipspace(char **str, int r)
     return (*str);
 }
 
-void    ft_tri(char *res, t_pars *pars) //intialiser la structure pour faire erreurs de doublons
+void    ft_exit(int n)
 {
+    ft_putstr("Error\n");
+    if (n == 1)
+        ft_putstr("Please check that the data in your .cub file is valid.");
+    if (n == 2)
+        ft_putstr("Map Error: Please check that your map is valid.");
+    exit(EXIT_FAILURE);
+}
+//resolution doit pas apsser la taille de l'ordi donc si plus grand definir a la taille de l'ordi
+//textures: checker rendu de xpm to image pr  erreur
+//verifier valeurs
+
+int    ft_tri(char *res, t_pars *pars) //intialiser la structure pour faire erreurs de doublons
+{
+    char    instances[8];
+    int i;
+
+    i = 0;
+    while (i++ < 8)
+        instances[i] = 0;
     skipspace(&res, 2);
     if (*res == 'R')
-        ft_resolution(&res, pars);
-    else if (*res == 'NO'|| *res == 'SO' || *res == 'WE' || *res == 'EA' || *res == 'S')
-        ft_textures(&res, pars);
+        if (ft_resolution(&res, pars, &instances) == -1)
+            return (-1);
+    else if (*res == 'NO'|| *res == 'SO' || *res == 'WE' || *res == 'EA' || *res == 'S') //possibilite d'erreur
+        if (ft_textures(&res, pars, &instances) == -1)
+            return (-1);
     else if (*res == 'F' || *res == 'C')
-        ft_color(&res, pars);
+        if(ft_color(&res, pars, &instances) == -1)
+            return (-1);
+    else
+        return (-1);    
+    return (1);
 }
 
 t_pars  *parsing(t_pars *pars, char *res) //gestion d'erreurs et messages d'erreur. variable globale?
 {
     int count;
+
     count = 0;
     while (count < 8)
     {
         skipspace(&res, 1);
-        ft_tri(&res, pars);
+        if (ft_tri(&res, pars) == -1)
+            ft_exit(1);
     }
     skipspace(&res, 1);
-    ft_map(&res, pars);
+    if(ft_map(&res, pars) == -1) //strchr  pr savoir s'il y a un \n
+        ft_exit(2);
     return (pars);
 }

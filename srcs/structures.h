@@ -1,8 +1,10 @@
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
+# define MAXRES_X 2560
+# define MAXRES_Y 1440
+
 # define WALL_HEIGHT
-# define WALL_DIST
 # define VIEW_HEIGHT
 
 //map structures

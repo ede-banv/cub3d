@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 13:29:05 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/03 19:12:13 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/04 13:39:27 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int     checkfile(char *file)
     if (j == 4)
         return (1);
     else
-        return (0);
+        return (-1);
 }
 
 t_pars  *ft_open(char *file)
@@ -95,7 +95,7 @@ t_pars  *ft_open(char *file)
     char    *res;
     int     fd;
 
-    if (checkfile(file) == 0)
+    if (checkfile(file) == -1)
         return (NULL);
     if ((fd = open(file, O_RDONLY)) == -1)
         return (NULL);
