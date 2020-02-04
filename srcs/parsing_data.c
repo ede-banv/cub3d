@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 14:06:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/04 14:21:37 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/04 15:23:59 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int     ft_resolution(t_pars *pars, char **res, char **inst)
         return (-1);
     else if (t <= MAXRES_Y)
         pars->res[1] = t;
+    return (1);
 }
 
 int     ft_textures(t_pars *pars, char **res, char **inst)

@@ -65,8 +65,8 @@ int main()
  */
     image = mlx_new_image(mlx_ptr, 1000, 1000);
     data = (int *)mlx_get_data_addr(image, &bpp, &sizel, &endian);
-   // while (i++ - 1000 < 50)
-        data[i*500] = 0xFF0084;
+    while (i++ - 1000 < 50)
+        data[i*500+500] = 0xFF0084;
     mlx_put_image_to_window(mlx_ptr, win_ptr, image, 0, 0);
     mlx_loop(mlx_ptr);
    return (0);
