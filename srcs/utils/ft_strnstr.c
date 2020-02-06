@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 17:39:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2019/10/28 11:52:54 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/06 17:48:22 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "utils.h"
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {

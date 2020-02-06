@@ -4,7 +4,7 @@ SRCS = parsing.c parsing_data.c parsing_structs.c parsing_texture.c
 
 UTLS_PATH = /srcs/utils/
 
-UTILS = get_next_line.c get_next_line_utils.c ft_strnstr.c
+UTILS = get_next_line.c get_next_line_utils.c ft_strnstr.c ft_split.c
 
 OBJS = ${SRCS:.c=.o}
 

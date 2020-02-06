@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 18:32:39 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/06 17:41:00 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/06 17:47:47 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int		ft_strlen(char *str);
 char	*ft_noleak(char **stock, char **buf);
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t n);
+char	**ft_split(char const *s, char c);
 
 #endif

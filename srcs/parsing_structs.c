@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 19:05:37 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/06 17:27:14 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/06 19:35:02 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void    ft_exit(int n)
 
 int    ft_tri(char *res, t_pars *pars, t_all *all) //intialiser la structure pour faire erreurs de doublons
 {
-    char    instances[8];
-    int i;
+    static char instances[8];
+    int         i;
 
     i = 0;
     while (i++ < 8)
@@ -98,7 +98,7 @@ t_pars  *parsing(t_pars *pars, char *res, t_all *all) //gestion d'erreurs et mes
             ft_exit(1);
     }
     skipspace(&res, 1);
-    if(ft_map(&res, pars) == -1) //strchr  pr savoir s'il y a un \n
+    if(ft_map(&res, pars, all) == -1) //free si err car split malloc
         ft_exit(2);
     return (pars);
 }
