@@ -6,17 +6,12 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 13:29:05 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/04 13:39:27 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/06 17:27:47 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//impotant to work on error messages. make sure the error messages are sent for each problem. or maybe just send a general error for all .cub3d files?
-//structure for error???????????
 #include "utils/utils.h"
 #include "cub3d.h"
-//xpm to image man new_image pr les texture xdxdxdxd merci mli xdxdxd
-//maybe make individual functions to check each parameter to make sure there are no value errors.
-//make sure to have a function to check errors and show the correct error message.
 
 int     ft_freeer(char **res, t_pars *pars)
 {
@@ -89,7 +84,7 @@ int     checkfile(char *file)
         return (-1);
 }
 
-t_pars  *ft_open(char *file)
+t_pars  *ft_open(char *file, t_all *all)
 {
     t_pars  *pars;
     char    *res;
@@ -101,21 +96,7 @@ t_pars  *ft_open(char *file)
         return (NULL);
     if (!(res = reading(fd)))
         return (ft_freeer(&res, NULL));
-    if (!(pars = parsing(pars, res)))
+    if (!(pars = parsing(pars, res, all)))
         return (ft_freeer(&res, NULL));
     return (ft_freeer(&res, pars));
 }
-
-/*
-int main(int ac, char **av)
-{
-    int fd;
-
-    if (ac == 2)
-    {
-        fd = open(av[1], O_RDONLY);
-        printf("%s", reading(fd));
-    }
-    return (0);
-}
-*/

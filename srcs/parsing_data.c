@@ -6,17 +6,35 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 14:06:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/04 15:23:59 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/06 17:36:54 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils/utils.h"
 #include "cub3d.h"
 
-int     ft_resolution(t_pars *pars, char **res, char **inst)
+int    skippath(char **res)
+{
+    while (**res >= 32 && **res <= 126)
+    {
+        if (**res == 32)
+        {
+            if (**(res - 1) != 92)
+                return (-1);
+        }
+        (*res)++;
+    }
+    return(1);
+}
+
+int     ft_resolution(t_pars *pars, char **res, char *inst)
 {
     int t;
 
+    (*res)++;
+    inst[0] += 1;
+    if (inst[0] > 1)
+        return (-1);
     pars->res[0] = MAXRES_X;
     pars->res[1] = MAXRES_Y;
     if ((t = ft_atoipositif(res)) == -1)
@@ -35,12 +53,69 @@ int     ft_resolution(t_pars *pars, char **res, char **inst)
     return (1);
 }
 
-int     ft_textures(t_pars *pars, char **res, char **inst)
+int     ft_textures(t_pars *pars, char **res, char *inst, t_all *all)
 {
-    
+    if (**res == 'N') //tt ca cest faux
+    {
+        if (ft_textno(pars, res, inst, all) == -1)
+            return (-1);
+    }
+    else if ((*res)++ == 'W')
+    {
+        if (ft_textwe(pars, res, inst, all) == -1)
+            return (-1);
+    }
+    else if ((*res)++ == 'E')
+    {
+        if (ft_textea(pars, res, inst, all) == -1)
+            return (-1);
+    }
+    else if ((*res)++ == 'S')
+    {
+        if (ft_textsso(pars, res, inst, all) == -1)
+            return (-1);
+    }
+    if (skippath(res) == -1)
+        return (-1);
+    return (1);
 }
 
-int     ft_colors(t_pars *pars, char **res, char **inst)
+int     ft_checkcolor(char **res)
 {
+    int t;
     
+    (*res)++;
+    if ((t = ft_atoipositif(res)) == -1)
+        return (-1);
+    else if (t >= 0 && t <= 255)
+        return (t);
+    else
+        return (-1);
+}
+
+int     ft_colors(t_pars *pars, char **res, char *inst)
+{
+    int     t;
+    char    *tab;
+
+    if (**res == 'F')
+    {
+        tab = (char *)&pars->f;
+        if (t == ft_checkcolor(res) == -1)
+            return (-1);
+        tab[0] = t;
+        if (t == ft_checkcolor(res) == -1)
+            return (-1);
+        tab[1] = t;
+        if (t == ft_checkcolor(res) == -1)
+            return (-1);
+        tab[2] = t;
+        inst[6] += 1;
+        if (inst[6] > 1)
+            return (-1);
+    }
+    else if (**res == 'C')
+        if (checkcolorc(pars, res, inst) == -1)
+            return (-1);
+    return (1);
 }

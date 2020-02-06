@@ -1,6 +1,6 @@
 SRCS_PATH = /srcs/
 
-SRCS = parsing.c
+SRCS = parsing.c parsing_data.c parsing_structs.c parsing_texture.c
 
 UTLS_PATH = /srcs/utils/
 
@@ -16,7 +16,7 @@ CC = gcc
 
 NAME = Cub3D
 
-$(NAME): ${OBJS}
+$(NAME): ${OBJS} ${OBJS_UTILS}
 
 all: ${NAME}
 

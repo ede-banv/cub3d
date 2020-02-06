@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 19:05:37 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/04 14:13:42 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/06 17:27:14 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void    ft_exit(int n)
 //textures: checker rendu de xpm to image pr  erreur
 //verifier valeurs
 
-int    ft_tri(char *res, t_pars *pars) //intialiser la structure pour faire erreurs de doublons
+int    ft_tri(char *res, t_pars *pars, t_all *all) //intialiser la structure pour faire erreurs de doublons
 {
     char    instances[8];
     int i;
@@ -66,20 +66,27 @@ int    ft_tri(char *res, t_pars *pars) //intialiser la structure pour faire erre
         instances[i] = 0;
     skipspace(&res, 2);
     if (*res == 'R')
-        if (ft_resolution(&res, pars, &instances) == -1)
+    {
+        if (ft_resolution(&res, pars, instances) == -1)
             return (-1);
-    else if (*res == 'NO'|| *res == 'SO' || *res == 'WE' || *res == 'EA' || *res == 'S') //possibilite d'erreur
-        if (ft_textures(&res, pars, &instances) == -1)
+    }
+    else if (*res == 'N'|| *res == 'S' || *res == 'W' || *res == 'E') //possibilite d'erreur
+    {
+        if (ft_textures(&res, pars, instances, all) == -1)
             return (-1);
+    }
     else if (*res == 'F' || *res == 'C')
-        if(ft_color(&res, pars, &instances) == -1)
+    {
+        if (ft_color(&res, pars, instances) == -1)
             return (-1);
+    }
     else
-        return (-1);    
+        return (-1);
+    skipspace(res, 2); 
     return (1);
 }
 
-t_pars  *parsing(t_pars *pars, char *res) //gestion d'erreurs et messages d'erreur. variable globale?
+t_pars  *parsing(t_pars *pars, char *res, t_all *all) //gestion d'erreurs et messages d'erreur. variable globale?
 {
     int count;
 
@@ -87,7 +94,7 @@ t_pars  *parsing(t_pars *pars, char *res) //gestion d'erreurs et messages d'erre
     while (count < 8)
     {
         skipspace(&res, 1);
-        if (ft_tri(&res, pars) == -1)
+        if (ft_tri(&res, pars, all) == -1)
             ft_exit(1);
     }
     skipspace(&res, 1);

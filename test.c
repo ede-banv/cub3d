@@ -1,6 +1,6 @@
 #include "./minilibx_mms_20191207_beta/mlx.h"
 #include <unistd.h>
-
+/*
 void    ft_putchar(char c)
 {
     write(1, &c, 1);
@@ -60,9 +60,9 @@ int main()
 
     mlx_ptr = mlx_init();
     win_ptr = mlx_new_window(mlx_ptr, 1000, 1000, "mlx 42");
- /*   r = mlx_pixel_put(mlx_ptr, win_ptr, 100, 150, res);
+    r = mlx_pixel_put(mlx_ptr, win_ptr, 100, 150, res);
     mlx_key_hook(win_ptr, deal_key, (void *)0);
- */
+ 
     image = mlx_new_image(mlx_ptr, 1000, 1000);
     data = (int *)mlx_get_data_addr(image, &bpp, &sizel, &endian);
     while (i++ - 1000 < 50)
@@ -70,4 +70,25 @@ int main()
     mlx_put_image_to_window(mlx_ptr, win_ptr, image, 0, 0);
     mlx_loop(mlx_ptr);
    return (0);
+}
+*/
+
+void    ft_test(char *res)
+{
+    int i;
+
+    i = 0;
+    res[7] = '\0';
+    while (i < 7)
+    {
+        res[i] = '1';
+        i++;
+    }
+}
+
+int main()
+{
+    char res[8];
+    ft_test(res);
+    printf("%s", res);
 }

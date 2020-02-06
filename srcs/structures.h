@@ -14,15 +14,15 @@ typedef struct  s_txtr
     char    *so;
     char    *we;
     char    *ea;
-    char    *sprite;
+    char    *sp;
 }               t_txtr;
 
 typedef struct  s_pars
 {
     int     res[2];
     t_txtr  texture;
-    int     f[3];
-    int     c[3];
+    int     f;
+    int     c;
     char    **map;
 }               t_pars;
 
@@ -42,7 +42,7 @@ typedef struct  s_window
     void    *win_ptr;
     t_img   image;
     int     height;
-    int     window;
+    int     width;
 }               t_window;
 
 //player structures
