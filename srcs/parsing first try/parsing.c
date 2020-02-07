@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 13:29:05 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/06 17:27:47 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/07 13:53:15 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ char    *reading(int fd)
     while (n == 1)
     {
         n = get_next_line(fd, &data);
+        //check s'il y a une ligne de 1.
+        //  si oui & variable a 0: fct parsing
+        //check si 
         res = restocklol(&res, data, n);
         free(data);
         data = NULL;

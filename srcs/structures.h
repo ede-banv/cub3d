@@ -36,14 +36,14 @@ typedef struct  s_img
     int     *endian;
 }               t_img;
 
-typedef struct  s_window
+typedef struct  s_win
 {
     void    *mlx_ptr;
     void    *win_ptr;
     t_img   image;
     int     height;
     int     width;
-}               t_window;
+}               t_win;
 
 //player structures
 typedef struct  s_pos
@@ -73,10 +73,10 @@ typedef struct  s_ori   //pour minimap
 //big boy des structures
 typedef struct  s_all
 {
-    t_pars      pars;
-    t_window    win;
-    t_play      player;
-    t_ori       mm;
+    t_pars  pars;
+    t_win   win;
+    t_play  player;
+    t_ori   mm;
 }               t_all;
 
 #endif
