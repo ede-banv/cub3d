@@ -6,11 +6,10 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 14:06:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/06 17:36:54 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/10 20:58:17 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils/utils.h"
 #include "cub3d.h"
 
 int    skippath(char **res)

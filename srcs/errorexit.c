@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:05:18 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/07 16:15:26 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/10 20:38:04 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,21 @@ void    ft_argerror(int n)
 void    ft_parsingerror(int n)
 {
     if (n == 0)
-        ft_putstr_fd("Please only define each element once.\n", 2);
+        ft_putstr_fd("Parsing error: Please only define each element once.\n", 2);
     else if (n == 1)
         ft_putstr_fd("Resolution error.\n", 2);
     else if (n == 2)
         ft_putstr_fd("Texture path error.\n", 2);
     else if (n == 3)
-        ft_putstr_fd("Floor color error.\n", 2);
+        ft_putstr_fd("Floor or ceiling color error.\n", 2);
     else if (n == 4)
-        ft_putstr_fd("Ceiling color error.\n", 2);
-    else if (n == 5)
         ft_putstr_fd("Map error: Please input a closed map.\n", 2);
     else if (n == 5)
         ft_putstr_fd("Map error: Please input a map with the correct elements.\n", 2);
-    else if (n == 5)
+    else if (n == 6)
         ft_putstr_fd("Map error: Please verify your map.\n", 2);
+    else if (n == 7)
+        ft_putstr_fd("Parising error: Please check your .cub file.", 2);
     exit(EXIT_FAILURE);
 }
 

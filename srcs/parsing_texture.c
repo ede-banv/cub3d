@@ -6,11 +6,10 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:29:08 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/06 17:26:39 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/10 20:58:31 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils/utils.h"
 #include "cub3d.h"
 
 int     ft_textno(t_pars *pars, char **res, char *inst, t_all *all)
