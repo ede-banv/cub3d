@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/10 20:49:48 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/10 21:08:48 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void    startprogram(char *file, int n)
     if (!(all->win.mlx_ptr = mlx_init()))
         ft_exit(3, 4);
     parsing(all, fd);
+    close(fd);
     //this should return a fully malloqued & filled pars structure OR just exit by itself.
     //as well as the player info partially filled.
     //so next to do:

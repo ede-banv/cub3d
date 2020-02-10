@@ -46,13 +46,13 @@ typedef struct  s_win
 }               t_win;
 
 //player structures
-typedef struct  s_pos
+typedef struct  s_pos //pas besoin de malloc
 {
     int     x;
     int     y;
 }               t_pos;
 
-typedef struct  s_play
+typedef struct  s_play //pas besoin de malloc
 {
     t_pos   p;
     int     fov; //taille du field of view
@@ -68,15 +68,15 @@ typedef struct  s_ori   //pour minimap
     char    *S;
     char    *E;
     char    *W;
-}               t_ori;
+}               t_ori; // a malloc
 
 //big boy des structures
 typedef struct  s_all
 {
     t_pars  pars;
     t_win   win;
-    t_play  player;
-    t_ori   mm;
+    t_play  player; //pas besoin de malloc
+    t_ori   mm; //a malloc
 }               t_all;
 
 #endif
