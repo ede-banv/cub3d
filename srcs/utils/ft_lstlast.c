@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/15 12:15:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/11 18:23:22 by ede-banv         ###   ########.fr       */
+/*   Created: 2019/10/19 15:42:17 by ede-banv          #+#    #+#             */
+/*   Updated: 2020/02/11 18:39:02 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "../cub3d.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i])
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
-	}
+	if (lst == NULL)
+		return (lst);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

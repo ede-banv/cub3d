@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/15 12:15:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/11 18:23:22 by ede-banv         ###   ########.fr       */
+/*   Created: 2019/10/22 14:23:07 by ede-banv          #+#    #+#             */
+/*   Updated: 2020/02/11 18:37:20 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "../cub3d.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int i;
+	t_list	*tmp;
+	t_list	*indice;
 
-	i = 0;
-	if (s)
+	if (!del || !lst)
+		return ;
+	indice = *lst;
+	while (indice)
 	{
-		while (s[i])
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
+		tmp = indice->next;
+		ft_lstdelone(indice, del);
+		indice = tmp;
 	}
+	*lst = NULL;
 }
