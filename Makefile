@@ -1,31 +1,57 @@
-SRCS_PATH = ./srcs/
-
-SRCS = parsing_data.c parsing_texture.c start.c errorexit.c main.c parsing_map.c
-
-UTILS_PATH = ./srcs/utils/
-
-UTILS = get_next_line.c get_next_line_utils.c ft_strnstr.c ft_split.c ft_lstadd_back.c ft_lstclear.c \
-ft_lstdelone.c ft_lstlast.c ft_lstnew.c ft_lstsize.c ft_putstr_fd.c ft_strnstr.c ft_atoipositif.c
-
-OBJS = ${addprefix ${SRCS_PATH}, ${SRCS:.c=.o}}
-
-OBJS_UTILS = ${addprefix ${UTILS_PATH}, ${UTILS:.c=.o}}
-
-CFLAGS = -Wall -Wextra -Werror
-
-CC = gcc
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
+#    Updated: 2020/02/19 21:28:25 by ede-banv         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 NAME = Cub3D
 
-$(NAME): ${OBJS} ${OBJS_UTILS}
-		${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${OBJS_UTILS}
+CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror
+
+MLX_PATH = ./minilibx_opengl_20191021/
+MLX_NAME = libmlx.a
+
+PARSING_PATH = parsing/
+PARSING = parsing_data.c parsing_texture.c parsing_map.c
+SRCS_PARSING = ${addprefix ${PARSING_PATH}, ${PARSING}}
+
+UTILS_PATH = utils/
+UTILS = get_next_line.c get_next_line_utils.c ft_atoipositif.c
+SRCS_UTILS = ${addprefix ${UTILS_PATH}, ${UTILS}}
+
+SRCS_PATH = ./srcs/
+SRCS = start.c errorexit.c main.c ${SRCS_PARSING} ${SRCS_UTILS}
+
+LIBFT_PATH = ./libft/
+LIBFT = libft.a
+
+OBJS = ${addprefix ${SRCS_PATH}, ${SRCS:.c=.o}}
+
+$(NAME): ${OBJS} ${OBJS_UTILS} ${OBJS_PARSING} ${MLX_PATH}${MLX_NAME} ${LIBFT_PATH}${LIBFT}
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L ${MLX_PATH} -L ${LIBFT_PATH} -lft -lmlx -framework OpenGL -framework AppKit
 
 all: ${NAME}
 
+$(LIBFT_PATH)$(LIBFT): ${LIBFT_PATH}libft.h
+	make -C ${LIBFT_PATH}
+
+$(MLX_PATH)$(MLX_NAME): ${MLX_FILES}
+	make -C ${MLX_PATH}
+	
 clean:
-	rm -rf ${OBJS} ${OBJS_UTILS}
+	rm -rf ${OBJS} ${OBJS_UTILS} ${OBJS_PARSING}
+	make clean -C ${LIBFT_PATH}
 
 fclean: clean
 	rm -rf ${NAME}
+	rm -rf ${LIBFT_PATH}${LIBFT}
 
 re:	fclean all

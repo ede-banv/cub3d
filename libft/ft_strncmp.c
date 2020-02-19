@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ede-banv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 14:01:09 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/11 18:32:15 by ede-banv         ###   ########.fr       */
+/*   Created: 2019/10/08 17:39:27 by ede-banv          #+#    #+#             */
+/*   Updated: 2019/10/24 17:55:56 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int		size;
-	t_list	*indice;
+	size_t			i;
+	unsigned int	r;
 
-	size = 0;
-	indice = lst;
-	while (indice)
+	i = 0;
+	while ((s1[i] || s2[i]) && i < n)
 	{
-		indice = indice->next;
-		size++;
+		r = (unsigned char)s1[i] - (unsigned char)s2[i];
+		if (r != '\0')
+			return (r);
+		i++;
 	}
-	return (size);
+	return (0);
 }

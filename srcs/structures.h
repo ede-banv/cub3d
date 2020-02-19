@@ -8,12 +8,6 @@
 # define VIEW_HEIGHT
 
 //map structures
-typedef struct  s_list
-{
-    int             *line;
-    int             nb;
-    struct s_list  *next;
-}               t_list;
 
 typedef struct  s_txtr
 {

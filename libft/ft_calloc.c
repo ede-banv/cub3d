@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ede-banv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/18 22:35:42 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/11 18:45:44 by ede-banv         ###   ########.fr       */
+/*   Created: 2019/10/07 20:30:49 by ede-banv          #+#    #+#             */
+/*   Updated: 2019/10/24 23:30:34 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include <stdlib.h>
 
-t_list	*ft_lstnew(void *content)
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_list	*newelem;
+	char	*r;
+	size_t	i;
 
-	if (!(newelem = malloc(sizeof(newelem))))
+	i = 0;
+	if (!size || !count)
+	{
+		size = 1;
+		count = 1;
+	}
+	if (!(r = malloc(count * size)))
 		return (NULL);
-	newelem->line = content;
-	newelem->next = NULL;
-	return (newelem);
+	while (i < (size * count))
+	{
+		*(char *)r = '\0';
+		r++;
+		i++;
+	}
+	return (r - i);
 }

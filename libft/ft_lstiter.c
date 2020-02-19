@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ede-banv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 14:23:07 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/11 18:37:20 by ede-banv         ###   ########.fr       */
+/*   Created: 2019/10/19 22:51:24 by ede-banv          #+#    #+#             */
+/*   Updated: 2019/10/25 22:45:08 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*tmp;
 	t_list	*indice;
 
-	if (!del || !lst)
+	if (!lst || !f)
 		return ;
-	indice = *lst;
+	indice = lst;
 	while (indice)
 	{
-		tmp = indice->next;
-		ft_lstdelone(indice, del);
-		indice = tmp;
+		f(indice->content);
+		indice = indice->next;
 	}
-	*lst = NULL;
 }

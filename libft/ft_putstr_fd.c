@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 17:39:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/06 17:48:22 by ede-banv         ###   ########.fr       */
+/*   Created: 2019/10/15 12:15:28 by ede-banv          #+#    #+#             */
+/*   Updated: 2020/02/19 20:10:30 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t n)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-	int		a;
-	int		size;
+	int i;
 
 	i = 0;
-	a = 0;
-	size = 0;
-	while (to_find[size])
-		size++;
-	while (str[i] && i < n)
+	if (s)
 	{
-		if (str[i] == to_find[a])
-			a++;
-		else if (a == size)
-			return (i - a + (char *)str);
-		else if (a != 0)
+		while (s[i])
 		{
-			a = 0;
-			i--;
+			write(fd, &s[i], 1);
+			i++;
 		}
-		i++;
 	}
-	if (a == size)
-		return (i - a + (char *)str);
-	return (0);
 }

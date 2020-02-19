@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ede-banv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 19:19:44 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/11 18:38:33 by ede-banv         ###   ########.fr       */
+/*   Created: 2019/10/07 11:57:28 by ede-banv          #+#    #+#             */
+/*   Updated: 2019/10/23 14:19:22 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
-
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int	ft_isdigit(int c)
 {
-	if (lst && del)
-	{
-		del(lst->line);
-		del(lst->nb);
-		free(lst);
-	}
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

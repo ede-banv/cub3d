@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ede-banv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 16:39:05 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/11 18:32:57 by ede-banv         ###   ########.fr       */
+/*   Created: 2019/10/07 11:49:43 by ede-banv          #+#    #+#             */
+/*   Updated: 2019/10/23 14:19:03 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
-
-void	ft_lstadd_back(t_list **alst, t_list *new)
+int	ft_isalpha(int c)
 {
-	if (new == NULL || alst == NULL)
-		return ;
-	if (*alst == NULL)
-	{
-		*alst = new;
-		return ;
-	}
-	ft_lstlast(*alst)->next = new;
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	return (0);
 }

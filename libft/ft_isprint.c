@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ede-banv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/15 12:15:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/11 18:23:22 by ede-banv         ###   ########.fr       */
+/*   Created: 2019/10/07 15:10:03 by ede-banv          #+#    #+#             */
+/*   Updated: 2019/10/26 22:09:42 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
-
-void	ft_putstr_fd(char *s, int fd)
+int	ft_isprint(int c)
 {
-	int i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i])
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
-	}
+	if (c >= ' ' && c <= '~')
+		return (1);
+	return (0);
 }

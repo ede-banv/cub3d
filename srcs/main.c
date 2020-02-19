@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 13:53:33 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/07 17:07:26 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/19 19:16:27 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int     checkfile(char *file)
     int     len;
     int     i;
     int     j;
-    char    cub[4];
+    char    *cub;
 
     if (!file)
         return (-1);
     len = ft_strlen(file);
     i = len - 5;
     j = 0;
-    *cub = ".cub";
+    cub = ".cub";
     while (i < len)
     {
         if (file[i++] == cub[j])
@@ -38,11 +38,11 @@ int     checkfile(char *file)
 
 int     checksave(char *save)
 {
-    char    arg[5];
+    char    *arg;
     int     i;
 
     i = 0;
-    *arg = "-save";
+    arg = "-save";
     if (!save)
         return (-1);
     while (save[i] == arg[i])

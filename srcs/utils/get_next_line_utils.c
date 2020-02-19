@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 18:27:53 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/03 16:36:33 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/19 19:45:07 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,6 @@ char	*ft_strchr(const char *s, int c)
 	if (s[i] == c)
 		return ((char *)&s[i]);
 	return (NULL);
-}
-
-int		ft_strlen(char *str)
-{
-	int i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }
 
 char	*ft_noleak(char **stock, char **buf)

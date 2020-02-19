@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 14:36:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/19 14:36:45 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/19 19:05:00 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,11 @@ int             ft_atoipositif(char **str)
         return (n);
     else
         return (-1);
+}
+
+char    *skipspace(char **str, int r)
+{
+    while (**str == (r == 2 ? ' ' : '\n')) //if 2 skip space else skip \n
+        (*str)++;
+    return (*str);
 }

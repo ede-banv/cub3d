@@ -6,11 +6,11 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 21:20:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/19 14:22:37 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/19 20:17:36 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int     newlen(char *str)
 {
@@ -26,7 +26,7 @@ int     newlen(char *str)
     return (i);
 }
 
-int     ft_cleanline(char *str, int len)
+char    *ft_cleanline(char *str, int len)
 {
     char    *final;
     int     i;
@@ -41,14 +41,14 @@ int     ft_cleanline(char *str, int len)
             final[i] = *str;
             i++;
         }
-        *str++;
+        str++;
     }
     return (final);
 }
 
 void    ft_map(t_all *all, int fd, char *data)
 {
-    t_list  **alst;
+    t_list  *alst;
     t_list  *lst;
     char    *tmp;
     int     r;
@@ -57,12 +57,13 @@ void    ft_map(t_all *all, int fd, char *data)
 
     r = 1;
     n = 0;
+    (void)all;
     while (r == 1)
     {
         if (n == 1)
-            r = get_next_line(fd, data);
-        if (ft_checline(data, " 012NSWE"))
-            len = ft_newlen(data);
+            r = get_next_line(fd, &data);
+        if (ft_checkline(data, " 012NSWE"))
+            len = newlen(data);
         else
             ft_free(data, 2, 5);
         if (len == 0)
@@ -77,7 +78,7 @@ void    ft_map(t_all *all, int fd, char *data)
         else
         {
             lst = ft_lstnew(tmp);
-            ft_lstadd_back(alst, lst);
+            ft_lstadd_back(&alst, lst);
             free(lst);
         }
         free(data);

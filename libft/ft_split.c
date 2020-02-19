@@ -6,11 +6,11 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 18:05:31 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/06 17:48:12 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/19 20:11:26 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "libft.h"
 
 static int		count_wrds(char const *s, char c)
 {
