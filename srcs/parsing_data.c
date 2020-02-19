@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 14:06:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/10 20:58:17 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/19 14:49:06 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,17 @@ int     ft_textures(t_pars *pars, char **res, char *inst, t_all *all)
         if (ft_textno(pars, res, inst, all) == -1)
             return (-1);
     }
-    else if ((*res)++ == 'W')
+    else if (**res == 'W')
     {
         if (ft_textwe(pars, res, inst, all) == -1)
             return (-1);
     }
-    else if ((*res)++ == 'E')
+    else if (**res == 'E')
     {
         if (ft_textea(pars, res, inst, all) == -1)
             return (-1);
     }
-    else if ((*res)++ == 'S')
+    else if (**res++ == 'S')
     {
         if (ft_textsso(pars, res, inst, all) == -1)
             return (-1);
@@ -100,13 +100,13 @@ int     ft_colors(t_pars *pars, char **res, char *inst)
     if (**res == 'F')
     {
         tab = (char *)&pars->f;
-        if (t == ft_checkcolor(res) == -1)
+        if ((t = ft_checkcolor(res)) == -1)
             return (-1);
         tab[0] = t;
-        if (t == ft_checkcolor(res) == -1)
+        if ((t = ft_checkcolor(res)) == -1)
             return (-1);
         tab[1] = t;
-        if (t == ft_checkcolor(res) == -1)
+        if ((t = ft_checkcolor(res)) == -1)
             return (-1);
         tab[2] = t;
         inst[6] += 1;

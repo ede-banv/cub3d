@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 18:32:39 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/11 18:45:24 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/19 14:52:21 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,6 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 
+//other utils
+int     ft_atoipositif(char **str);
 #endif

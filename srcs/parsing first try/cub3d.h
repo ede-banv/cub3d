@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 19:07:40 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/07 14:49:12 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/19 14:51:43 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int     ft_textea(t_pars *pars, char **res, char *inst, t_all *all);
 int     ft_textsso(t_pars *pars, char **res, char *inst, t_all *all);
 int     ft_color(t_pars *pars, char **res, char *inst);
 int     ft_checkcolor(char **res);
-int     checkcolorc(t_pars *pars, char *res, char *inst);
+int     checkcolorc(t_pars *pars, char **res, char *inst);
 
 #endif
