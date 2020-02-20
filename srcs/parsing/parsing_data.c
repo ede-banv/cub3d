@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 14:06:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/19 20:17:42 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:41:40 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int    skippath(char **res)
     }
     return(1);
 }
-
+#include <stdio.h>
 int     ft_resolution(t_pars *pars, char **res, char *inst)
 {
     int t;

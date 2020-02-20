@@ -6,7 +6,7 @@
 #    By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/02/19 21:28:25 by ede-banv         ###   ########.fr        #
+#    Updated: 2020/02/20 14:04:49 by ede-banv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ all: ${NAME}
 $(LIBFT_PATH)$(LIBFT): ${LIBFT_PATH}libft.h
 	make -C ${LIBFT_PATH}
 
-$(MLX_PATH)$(MLX_NAME): ${MLX_FILES}
+$(MLX_PATH)$(MLX_NAME):
 	make -C ${MLX_PATH}
 	
 clean:

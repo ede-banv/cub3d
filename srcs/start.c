@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/19 21:32:12 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/20 16:43:51 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,12 @@ void     ft_free(char *res, int e, int n)
 
 void    ft_tri(char *res, t_pars *pars, t_all *all) //intialiser la structure pour faire erreurs de doublons
 {
-    static char instances[8];
-    int         i;
+    static char *instances = NULL;
 
-    i = 0;
-    while (i++ < 8)
-        instances[i] = 0;
+    if (!instances)
+        instances = (char[]){0,0,0,0,0,0,0,0};
     skipspace(&res, 2);
+    ft_putstr_fd("tri\n", 1);
     if (*res == 'R')
     {
         if (ft_resolution(pars, &res, instances) == -1)
@@ -78,6 +77,7 @@ void    parsing(t_all *all, int fd)
     n = 1;
     while (n == 1)
     {
+        ft_putstr_fd("lol\n", 1);
         n = get_next_line(fd, &data);
         ft_tri(data, &all->pars, all);
         if (ft_checkline(data, "1 "))
