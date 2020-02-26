@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 13:53:33 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/19 19:16:27 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/24 16:20:19 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int main(int ac, char **av)
         startprogram(av[1], 1);
     }
     else if (ac == 3)
-    {
+    { 
         if (checkfile(av[1]) == -1)
             ft_exit(1, 2);
         if (checksave(av[2]) == -1)

@@ -1,3 +1,15 @@
+R 1920 1080
+NO ./textures/north_wall.xpm
+
+SO ./textures/south_wall.XPM
+WE ./textures/west_wall.XPM
+
+EA ./texture/east_wall.XPM
+S ./texture/skeleton.xpm
+F 220,100,0
+
+C 225,30,0
+
 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 1 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1

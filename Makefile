@@ -6,7 +6,7 @@
 #    By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/02/20 14:04:49 by ede-banv         ###   ########.fr        #
+#    Updated: 2020/02/26 23:03:42 by ede-banv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME = Cub3D
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
+DEBUG = -g3 -fsanitize=address
+
 
 MLX_PATH = ./minilibx_opengl_20191021/
 MLX_NAME = libmlx.a
@@ -39,6 +41,9 @@ $(NAME): ${OBJS} ${OBJS_UTILS} ${OBJS_PARSING} ${MLX_PATH}${MLX_NAME} ${LIBFT_PA
 	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L ${MLX_PATH} -L ${LIBFT_PATH} -lft -lmlx -framework OpenGL -framework AppKit
 
 all: ${NAME}
+
+debug: all
+	${CC} ${CFLAGS} $(DEBUG) -o ${NAME} ${OBJS} -L ${MLX_PATH} -L ${LIBFT_PATH} -lft -lmlx -framework OpenGL -framework AppKit
 
 $(LIBFT_PATH)$(LIBFT): ${LIBFT_PATH}libft.h
 	make -C ${LIBFT_PATH}

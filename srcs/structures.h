@@ -24,7 +24,8 @@ typedef struct  s_pars
     t_txtr  texture;
     int     f;
     int     c;
-    char    **map;
+    int     **map;
+    int     *w;
 }               t_pars;
 
 //image & widnow structures
@@ -49,8 +50,8 @@ typedef struct  s_win
 //player structures
 typedef struct  s_pos //pas besoin de malloc
 {
-    int     x;
-    int     y;
+    float   x;
+    float   y;
 }               t_pos;
 
 typedef struct  s_play //pas besoin de malloc

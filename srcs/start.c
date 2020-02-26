@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/20 16:43:51 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/26 23:41:09 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    ft_tri(char *res, t_pars *pars, t_all *all) //intialiser la structure po
 {
     static char *instances = NULL;
 
-    if (!instances)
+    if (!instances) //initialiser variable en .h
         instances = (char[]){0,0,0,0,0,0,0,0};
     skipspace(&res, 2);
     ft_putstr_fd("tri\n", 1);
@@ -45,10 +45,10 @@ void    ft_tri(char *res, t_pars *pars, t_all *all) //intialiser la structure po
         if (ft_colors(pars, &res, instances) == -1)
             ft_free(res, 2, 3);
     }
-    else if (*res == '\n')
-        return ;
+//    else if (!ft_checkline(res, " "))
+//        return ft_free(res, 2, 7);
     else
-        return ft_free(res, 2, 7); 
+        return ; 
     return ;
 }
 
@@ -66,6 +66,8 @@ int     ft_checkline(char *data, char *pars)
         else
             return (0);
     }
+    if (i == 0)
+        return (0);
     return (1);
 }
 
@@ -83,9 +85,13 @@ void    parsing(t_all *all, int fd)
         if (ft_checkline(data, "1 "))
         {
             ft_map(all, fd, data);
+            n = 0;
         }
-        free(data);
-        data = NULL;
+        if (data)
+        {
+            free(data);
+            data = NULL;
+        }
     }
 }
 

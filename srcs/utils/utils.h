@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 18:32:39 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/19 19:44:02 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/26 22:05:20 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ char	*ft_noleak(char **stock, char **buf);
 //other utils
 int     ft_atoipositif(char **str);
 char    *skipspace(char **str, int r);
+
 #endif
