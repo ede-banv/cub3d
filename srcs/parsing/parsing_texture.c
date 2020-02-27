@@ -6,13 +6,13 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:29:08 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/21 15:11:54 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/27 17:08:29 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int     ft_textno(t_pars *pars, char **res, char *inst, t_all *all)
+int     ft_textno(t_pars *pars, char **res, int *inst, t_all *all)
 {
     (*res)++;
     if (**res != 'O')
@@ -28,7 +28,7 @@ int     ft_textno(t_pars *pars, char **res, char *inst, t_all *all)
     return (1);
 }
 
-int     ft_textwe(t_pars *pars, char **res, char *inst, t_all *all)
+int     ft_textwe(t_pars *pars, char **res, int *inst, t_all *all)
 {
     (*res)++;
     if (**res != 'E')
@@ -44,7 +44,7 @@ int     ft_textwe(t_pars *pars, char **res, char *inst, t_all *all)
     return (1);
 }
 
-int     ft_textea(t_pars *pars, char **res, char *inst, t_all *all)
+int     ft_textea(t_pars *pars, char **res, int *inst, t_all *all)
 {
     (*res)++;
     if (**res != 'A')
@@ -60,7 +60,7 @@ int     ft_textea(t_pars *pars, char **res, char *inst, t_all *all)
     return (1);
 }
 
-int     ft_textsso(t_pars *pars, char **res, char *inst, t_all *all)
+int     ft_textsso(t_pars *pars, char **res, int *inst, t_all *all)
 {
     (*res)++;
     if (**res == 'O')
@@ -74,19 +74,22 @@ int     ft_textsso(t_pars *pars, char **res, char *inst, t_all *all)
         if (inst[4] > 1)
             return (-1);
     }
-    else if (skipspace(res, 2) && !(pars->texture.sp = mlx_xpm_file_to_image(
-                    all->win.mlx_ptr, *res, &all->win.width, &all->win.height)))
-        return (-1);
-    else
+    else 
     {
-        inst[5] += 1;
-        if (inst[5] > 1)
+        if (skipspace(res, 2) && !(pars->texture.sp = mlx_xpm_file_to_image(
+                    all->win.mlx_ptr, *res, &all->win.width, &all->win.height)))
             return (-1);
+        else
+        {
+            inst[5] += 1;
+            if (inst[5] > 1)
+                return (-1);
+        }
     }
     return (1);
 }
 
-int     checkcolorc(t_pars *pars, char **res, char *inst)
+int     checkcolorc(t_pars *pars, char **res, int *inst)
 {
     int     t;
     char    *tab;

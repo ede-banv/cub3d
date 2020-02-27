@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 14:06:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/26 23:58:04 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/27 17:11:19 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int    skippath(char **res)
     return(1);
 }
 
-int     ft_resolution(t_pars *pars, char **res, char *inst)
+int     ft_resolution(t_pars *pars, char **res, int *inst)
 {
     int t;
 
@@ -52,9 +52,8 @@ int     ft_resolution(t_pars *pars, char **res, char *inst)
     return (1);
 }
 
-int     ft_textures(t_pars *pars, char **res, char *inst, t_all *all)
+int     ft_textures(t_pars *pars, char **res, int *inst, t_all *all)
 {
-    ft_putchar_fd('t', 1);
     if (**res == 'N') //tt ca cest faux
     {
         if (ft_textno(pars, res, inst, all) == -1)
@@ -70,7 +69,7 @@ int     ft_textures(t_pars *pars, char **res, char *inst, t_all *all)
         if (ft_textea(pars, res, inst, all) == -1)
             return (-1);
     }
-    else if (**res++ == 'S')
+    else if (**res == 'S')
     {
         if (ft_textsso(pars, res, inst, all) == -1)
             return (-1);
@@ -93,7 +92,7 @@ int     ft_checkcolor(char **res)
         return (-1);
 }
 
-int     ft_colors(t_pars *pars, char **res, char *inst)
+int     ft_colors(t_pars *pars, char **res, int *inst)
 {
     int     t;
     char    *tab;

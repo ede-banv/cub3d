@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 21:20:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/26 23:51:55 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/02/27 18:17:16 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int    *ft_cleanline(char *str, int len)
     int     i;
 
     i = 0;
-    if (!(final = malloc(sizeof(int) * (len + 1))))
+    if (!(final = malloc(sizeof(int) * len)))
         return (NULL);
     while (*str)
     {
@@ -94,6 +94,7 @@ void    ft_map2(t_list *alst, char *data, int len, int *n)
 
 void    ft_map(t_all *all, int fd, char *data)
 {
+    int i = 0;
     t_list  *alst;
     int     r;
     int     n;
@@ -106,6 +107,7 @@ void    ft_map(t_all *all, int fd, char *data)
     {
         if (n == 1)
             r = get_next_line(fd, &data);
+        printf("data : %d|%s|\n", i++, data);
         if (ft_checkline(data, " 012NSWE"))
             len = newlen(data);
         else
@@ -113,7 +115,6 @@ void    ft_map(t_all *all, int fd, char *data)
         if (len == 0)
             ft_free(data, 2, 6);
         ft_map2(alst, data, len, &n);
-        printf("data : |%s|\n", data);
         (data && n == 1) ? free(data) : n++;
     }
     ft_checkmap(&alst, all);
