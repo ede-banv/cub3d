@@ -6,7 +6,7 @@
 #    By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/02/27 12:28:58 by ede-banv         ###   ########.fr        #
+#    Updated: 2020/02/28 20:24:13 by ede-banv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ MLX_PATH = ./minilibx_opengl_20191021/
 MLX_NAME = libmlx.a
 
 PARSING_PATH = parsing/
-PARSING = parsing_data.c parsing_texture.c parsing_map.c
+PARSING = parsing_data.c parsing_texture.c parsing_map.c parsing_check.c \
+parsing_end.c
 SRCS_PARSING = ${addprefix ${PARSING_PATH}, ${PARSING}}
 
 UTILS_PATH = utils/
@@ -50,7 +51,7 @@ $(LIBFT_PATH)$(LIBFT): ${LIBFT_PATH}libft.h
 
 $(MLX_PATH)$(MLX_NAME):
 	make -C ${MLX_PATH}
-	
+
 clean:
 	rm -rf ${OBJS} ${OBJS_UTILS} ${OBJS_PARSING}
 	make clean -C ${LIBFT_PATH}
