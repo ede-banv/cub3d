@@ -1,4 +1,6 @@
 
+#include "srcs/utils/utils.h"
+
 void	affiche_inttab(int **map, t_pars pars)
 {
 	int	i;
