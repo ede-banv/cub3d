@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/03/08 00:44:10 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/03/09 19:14:34 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	ft_map(t_all *all, int fd, char *data);
 void	parsing_check(t_all *all);
 int		ft_position(t_all *all);
 int		lastline(t_pars *pars);
-void 	test(t_all *all);
+void 	test(t_all *all, int s);
 
 #endif

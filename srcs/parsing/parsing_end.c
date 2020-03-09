@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 14:52:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/28 20:12:29 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/03/09 17:14:12 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,28 @@ int		lastline(t_pars *pars)
 int		ft_joueur(t_all *all, int *count, char c)
 {
 	if (c == 'N')
-		all->player.rot = 90;
+	{
+		all->player.dir.x = 0;
+		all->player.dir.y = -1;
+	}
 	else if (c == 'S')
-		all->player.rot = 270;
+	{
+		all->player.dir.x = 0;
+		all->player.dir.y = 1;
+	}
 	else if (c == 'W')
-		all->player.rot = 0;
+	{
+		all->player.dir.x = -1;
+		all->player.dir.y = 0;
+	}
 	else if (c == 'E')
-		all->player.rot = 180;
+	{
+		all->player.dir.x = 1;
+		all->player.dir.y = 0;
+	}
 	if (*count == 0)
 		(*count)++;
-	else
-		return (-1);
-	return (1);
+	return (*count == 1 ? 1 : -1);
 }
 
 int		ft_position(t_all *all)
@@ -66,8 +76,8 @@ int		ft_position(t_all *all)
 			if (all->pars.map[i][j] == 'N' || all->pars.map[i][j] == 'S' ||
 			all->pars.map[i][j] == 'E' || all->pars.map[i][j] == 'W')
 			{
-				all->player.p.x = j;
-				all->player.p.y = i;
+				all->player.p.x = j + 0.5;
+				all->player.p.y = i + 0.5;
 				if (ft_joueur(all, &count, all->pars.map[i][j]) == -1)
 					return (-1);
 			}

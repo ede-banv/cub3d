@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:54:24 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/03/08 01:24:04 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/03/09 20:42:26 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,9 @@ typedef struct	s_play
 	int		hit;
 	int		side;
 	t_vec	sidedist;
-	t_vec	step;
+//	t_vec	step;
+	int		stepx;
+	int		stepy;
 //	int		fov;
 	int		rot;
 	int		speed;
