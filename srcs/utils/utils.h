@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 18:32:39 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/28 20:27:02 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/03/10 13:23:50 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../structures.h"
 # include "../../libft/libft.h"
 # include <stdio.h>
+# include <math.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>

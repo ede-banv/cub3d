@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 21:51:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/03/09 23:06:11 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/03/10 14:07:57 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	drawvline(t_all *all, int i)
 	j = 0;
 	img = &all->win.img;
 	width = all->pars.res[0];
-	if (all->player.side == 1 && all->player.stepy == 1) //sud
+	if (all->player.side == 1 && all->player.stepx == 1) //sud
 		color = 0xffD700;
 	if (all->player.side == 1 && all->player.stepy == -1)//nord
 		color = 0xff1493;
 	if (all->player.side == 0 && all->player.stepx == 1)//east
 		color = 0xffA500;
-	if (all->player.side == 0 && all->player.stepy == 0)//west
+	if (all->player.side == 0 && all->player.stepx == -1)//west
 		color = 0xff0000;
 	while (j < img->dstart)
 		img->data[j++ * width + i] = all->pars.c;
@@ -70,13 +70,13 @@ void	ft_startrc(t_all *all)
 	else if (py->raydir.x == 0)
 		py->deltadist.x = 1;
 	else
-		py->deltadist.x = py->raydir.x < 0 ? (1 / py->raydir.x) * -1 : 1 / py->raydir.x;
+		py->deltadist.x = fabs(1 / py->raydir.x);
 	if (py->raydir.x == 0)
 		py->deltadist.y = 0;
 	else if (py->raydir.y == 0)
 		py->deltadist.y = 1;
 	else
-		py->deltadist.y = py->raydir.y < 0 ? 1 / py->raydir.y * -1 : 1 / py->raydir.y;
+		py->deltadist.y = fabs(1 / py->raydir.y);
 	py->hit = 0;
 }
 
@@ -85,7 +85,6 @@ void	ft_firstraydir(t_all *all)
 	t_play *py;
 
 	py = &all->player;
-//	printf("raydirx:%f\traydiry:%f\n", py->raydir.x, py->raydir.y);
 	if (py->raydir.x < 0)
 	{
 		py->stepx = -1;
@@ -94,7 +93,7 @@ void	ft_firstraydir(t_all *all)
 	else
 	{
 		py->stepx = 1;
-		py->sidedist.x = (py->mapx + 1.0 + py->p.x) * py->deltadist.x;
+		py->sidedist.x = (py->mapx + 1.0 - py->p.x) * py->deltadist.x;
 	}
 	if (py->raydir.y < 0)
 	{
@@ -104,7 +103,7 @@ void	ft_firstraydir(t_all *all)
 	else
 	{
 		py->stepy = 1;
-		py->sidedist.y = (py->mapy + 1.0 + py->p.y) * py->deltadist.y;
+		py->sidedist.y = (py->mapy + 1.0 - py->p.y) * py->deltadist.y;
 	}
 }
 
@@ -148,7 +147,6 @@ void	ft_wallcalc(t_all *all, int i)
 **calculate size to show on screen fr the wall
 */
 	all->win.img.lineh = (int)(all->pars.res[1] / py->pwd);
-	printf("%d\t%d : %d\n", py->mapx, py->mapy, py->hit);
 	all->win.img.dstart = -all->win.img.lineh / 2 + all->pars.res[1] / 2;
 	if (all->win.img.dstart < 0)
 		all->win.img.dstart = 0;
