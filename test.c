@@ -1,6 +1,6 @@
-#include "./minilibx_mms_20191207_beta/mlx.h"
+#include "./minilibx_opengl_20191021/mlx.h"
 #include <unistd.h>
-/*
+
 void    ft_putchar(char c)
 {
     write(1, &c, 1);
@@ -9,7 +9,7 @@ void    ft_putchar(char c)
 void ft_putnbr(int n)
 {
     long int nb;
-    
+
     nb = n;
     if (nb < 0)
     {
@@ -31,7 +31,7 @@ int deal_key(int key, void *param)
     ft_putchar(' ');
     return (0);
 }
-
+/*
 int test()
 {
     int res;
@@ -45,7 +45,7 @@ int test()
     return (res);
 }
 
-
+*/
 int main()
 {
     void *mlx_ptr;
@@ -55,14 +55,13 @@ int main()
     int bpp;
     int sizel;
     int endian;
-    int res = test();
+    int r;
     int i = 1000;
 
     mlx_ptr = mlx_init();
     win_ptr = mlx_new_window(mlx_ptr, 1000, 1000, "mlx 42");
-    r = mlx_pixel_put(mlx_ptr, win_ptr, 100, 150, res);
     mlx_key_hook(win_ptr, deal_key, (void *)0);
- 
+
     image = mlx_new_image(mlx_ptr, 1000, 1000);
     data = (int *)mlx_get_data_addr(image, &bpp, &sizel, &endian);
     while (i++ - 1000 < 50)
@@ -71,7 +70,7 @@ int main()
     mlx_loop(mlx_ptr);
    return (0);
 }
-*/
+/*
 
 void    ft_test(char *res)
 {
@@ -91,4 +90,4 @@ int main()
     char res[8];
     ft_test(res);
     printf("%s", res);
-}
+}*/

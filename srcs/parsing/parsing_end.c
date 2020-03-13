@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 14:52:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/03/09 17:14:12 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/03/10 20:19:34 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,24 @@ int		lastline(t_pars *pars)
 	return (1);
 }
 
+void	ft_assign(t_all *all, double dirx, double diry, double planex, double planey)
+{
+	all->player.dir.x = dirx;
+	all->player.dir.y = diry;
+	all->player.plane.x = planex;
+	all->player.plane.y = planey;
+}
+
 int		ft_joueur(t_all *all, int *count, char c)
 {
 	if (c == 'N')
-	{
-		all->player.dir.x = 0;
-		all->player.dir.y = -1;
-	}
+		ft_assign(all, 0, -1, 0.66, 0);
 	else if (c == 'S')
-	{
-		all->player.dir.x = 0;
-		all->player.dir.y = 1;
-	}
+		ft_assign(all, 0, 1, -0.66, 0);
 	else if (c == 'W')
-	{
-		all->player.dir.x = -1;
-		all->player.dir.y = 0;
-	}
+		ft_assign(all, -1, 0, 0, -0.66);
 	else if (c == 'E')
-	{
-		all->player.dir.x = 1;
-		all->player.dir.y = 0;
-	}
+		ft_assign(all, 1, 0, 0, 0.66);
 	if (*count == 0)
 		(*count)++;
 	return (*count == 1 ? 1 : -1);

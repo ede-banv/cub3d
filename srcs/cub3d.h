@@ -6,12 +6,42 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/03/09 19:14:34 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/03/13 04:31:17 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
+//ARROW POUR TOURNER
+# define ARROW_UP 126
+# define ARROW_DOWN 125
+# define ARROW_LEFT 123
+# define ARROW_RIGHT 124
+# define EXIT_CODE 53
+//WASD POUR BOUGER
+# define A_KEY 0
+# define S_KEY 1
+# define D_KEY 2
+# define W_KEY 13
+
+# define ESC_KEY 53
+# define SHIFT_KEY 257
+# define C_KEY 8
+# define R_KEY 15
+# define P_KEY 35
+# define SPACE_KEY 49
+# define M_KEY 46
+# define L_KEY 37
+# define I_KEY 34
+# define O_KEY 31
+//for res
+# define MAXRES_X 2560
+# define MAXRES_Y 1440
+//speed
+# define FOOT_STEP 0.06
+# define BIG_FOOT 1.8
+# define ROT_SPEED 0.02
+
 # include "utils/utils.h"
 # include "../minilibx_opengl_20191021/mlx.h"
 
@@ -44,6 +74,14 @@ void	ft_map(t_all *all, int fd, char *data);
 void	parsing_check(t_all *all);
 int		ft_position(t_all *all);
 int		lastline(t_pars *pars);
-void 	test(t_all *all, int s);
+
+/*
+**fonctions d'affichage et de graphique
+*/
+void 	ft_graphic(t_all *all);
+void	drawvline(t_all *all, int i);
+void	ft_moveright_left(t_play *py, t_pars *pars, int n);
+void	ft_moveup_down(t_play *py, t_pars *pars, int n);
+void	ft_turn(t_play *py, int n);
 
 #endif

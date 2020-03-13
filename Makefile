@@ -6,7 +6,7 @@
 #    By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/03/08 01:23:13 by ede-banv         ###   ########.fr        #
+#    Updated: 2020/03/13 04:12:47 by ede-banv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ UTILS = get_next_line.c get_next_line_utils.c ft_atoipositif.c
 SRCS_UTILS = ${addprefix ${UTILS_PATH}, ${UTILS}}
 
 TRACING_PATH = tracing/
-TRACING = tracing.c
+TRACING = tracing.c tracing_draw.c tracing_move.c
 SRCS_TRC = ${addprefix ${TRACING_PATH}, ${TRACING}}
 
 SRCS_PATH = ./srcs/

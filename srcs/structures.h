@@ -6,18 +6,12 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:54:24 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/03/09 20:42:26 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/03/13 03:37:58 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
-
-# define MAXRES_X 2560
-# define MAXRES_Y 1440
-
-# define WALL_HEIGHT
-# define VIEW_HEIGHT
 
 /*
 **map structures
@@ -65,14 +59,19 @@ typedef struct	s_win
 	int		width;
 }				t_win;
 
-/*
-**player structures
-**play:
-** fov: player field of view
-** rot: vecteur de direction
-** speed: walking speed
-** tot_speed: turning speed
-*/
+
+typedef	struct s_mov
+{
+	int		up;
+	int		down;
+	int		left;
+	int		right;
+	int		close;
+	int		turnl;
+	int		turnr;
+}				t_mov;
+
+
 typedef struct	s_vec
 {
 	double	x;
@@ -107,13 +106,9 @@ typedef struct	s_play
 	int		hit;
 	int		side;
 	t_vec	sidedist;
-//	t_vec	step;
 	int		stepx;
 	int		stepy;
-//	int		fov;
-	int		rot;
-	int		speed;
-	int		rot_speed;
+	t_mov	mov;
 }				t_play;
 
 /*

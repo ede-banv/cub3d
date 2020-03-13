@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/03/09 22:21:38 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/03/13 03:49:45 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,8 @@ void	startprogram(char *file, int n)
 		ft_exit(3, 4);
 	parsing(all, fd);
 	close(fd);
-	test(all, n);
+	(void)n;
+	ft_graphic(all);
 	/*
 	**this should return a fully malloqued & filled pars structure OR just exit by itself.
 	**as well as the player info partially filled.
