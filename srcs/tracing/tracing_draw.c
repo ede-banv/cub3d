@@ -6,7 +6,7 @@
 /*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 14:58:35 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/04/27 20:20:52 by softemma         ###   ########.fr       */
+/*   Updated: 2020/04/29 16:56:38 by softemma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	drawvline(t_all *all, int i)
 	j = 0;
 	img = &all->win.img;
 	width = all->pars.res[0];
-	if (all->player.side == 1 && all->player.stepx == 1) //sud
+	if (all->player.side == 1 && all->player.stepy == 1) //sud
 		color = 0xffD700;
 	if (all->player.side == 1 && all->player.stepy == -1)//nord
 		color = 0xff1493;

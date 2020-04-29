@@ -6,7 +6,7 @@
 /*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 20:33:18 by softemma          #+#    #+#             */
-/*   Updated: 2020/04/29 16:07:06 by softemma         ###   ########.fr       */
+/*   Updated: 2020/04/29 16:54:20 by softemma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,12 @@ int		ft_isdone(int key, void *param)
 	return (0);
 }
 
-int		ft_iskill()
+int		ft_iskill(void *param)
 {
+	t_all *all;
+	all = (t_all *)param;
+	mlx_clear_window(all->win.mlx_ptr, all->win.win_ptr);
+	mlx_destroy_window(all->win.mlx_ptr, all->win.win_ptr);
 	exit(0);
 	return (0);
 }
