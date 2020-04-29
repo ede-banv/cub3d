@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+         #
+#    By: softemma <softemma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/03/13 04:12:47 by ede-banv         ###   ########.fr        #
+#    Updated: 2020/04/28 20:40:47 by softemma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,10 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 DEBUG = -g3 -fsanitize=address
 
-
-MLX_PATH = ./minilibx_opengl_20191021/
+#MLX_FLAGS = -lft -lmlx -framework OpenGL -framework AppKit
+#MLX_PATH = ./minilibx_opengl_20191021/
+MLX_FLAGS = -lft -lmlx -lX11 -lbsd -lXext
+MLX_PATH = ./minilibx-linux/
 MLX_NAME = libmlx.a
 
 PARSING_PATH = parsing/
@@ -31,7 +33,7 @@ UTILS = get_next_line.c get_next_line_utils.c ft_atoipositif.c
 SRCS_UTILS = ${addprefix ${UTILS_PATH}, ${UTILS}}
 
 TRACING_PATH = tracing/
-TRACING = tracing.c tracing_draw.c tracing_move.c
+TRACING = tracing.c tracing_draw.c tracing_move.c tracing_keys.c
 SRCS_TRC = ${addprefix ${TRACING_PATH}, ${TRACING}}
 
 SRCS_PATH = ./srcs/
@@ -43,7 +45,7 @@ LIBFT = libft.a
 OBJS = ${addprefix ${SRCS_PATH}, ${SRCS:.c=.o}}
 
 $(NAME): ${OBJS} ${OBJS_UTILS} ${OBJS_PARSING} ${MLX_PATH}${MLX_NAME} ${LIBFT_PATH}${LIBFT}
-	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L ${MLX_PATH} -L ${LIBFT_PATH} -lft -lmlx -framework OpenGL -framework AppKit
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS} -L ${MLX_PATH} -L ${LIBFT_PATH} ${MLX_FLAGS}
 
 all: ${NAME}
 

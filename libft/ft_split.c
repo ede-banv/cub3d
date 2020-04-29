@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 18:05:31 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/19 20:11:26 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/04/27 15:38:51 by softemma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int		count_wrds(char const *s, char c)
 	i = 0;
 	len = 0;
 	if (!s)
-		return ((int)NULL);
+		return (0);
 	while (s[i])
 	{
 		if (s[i] != c)

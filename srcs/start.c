@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/03/13 03:49:45 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/04/28 20:40:16 by softemma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void	ft_tri(char *res, t_pars *pars, t_all *all)
 int		ft_checkline(char *data, char *pars)
 {
 	int	i;
-	int	j;
+//	int	j;
 
 	i = 0;
-	j = 0;
+//	j = 0;
 	while (data[i])
 	{
 		if (ft_strchr(pars, (int)data[i]))
@@ -96,6 +96,7 @@ void	startprogram(char *file, int n)
 	parsing(all, fd);
 	close(fd);
 	(void)n;
+	ft_init_keys(&all->player);
 	ft_graphic(all);
 	/*
 	**this should return a fully malloqued & filled pars structure OR just exit by itself.

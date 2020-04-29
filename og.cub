@@ -1,7 +1,7 @@
 
 
 R 1920 1080
-NO    ./textures/north_wall.xpm
+NO    ./textures/north_wall.XPM
 
 SO ./textures/bookshelf.xpm
 WE ./textures/west_wall.XPM

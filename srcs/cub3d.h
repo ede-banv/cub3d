@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/03/13 04:31:17 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/04/29 16:02:44 by softemma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
+/*
 //ARROW POUR TOURNER
 # define ARROW_UP 126
 # define ARROW_DOWN 125
@@ -19,12 +20,26 @@
 # define ARROW_RIGHT 124
 # define EXIT_CODE 53
 //WASD POUR BOUGER
+
 # define A_KEY 0
 # define S_KEY 1
 # define D_KEY 2
 # define W_KEY 13
 
+
 # define ESC_KEY 53
+*/
+# define ARROW_LEFT 65361
+# define ARROW_RIGHT  65363
+
+# define A_KEY 97
+# define S_KEY 115
+# define D_KEY 100
+# define W_KEY 119
+
+
+# define ESC_KEY 65307
+
 # define SHIFT_KEY 257
 # define C_KEY 8
 # define R_KEY 15
@@ -40,10 +55,10 @@
 //speed
 # define FOOT_STEP 0.06
 # define BIG_FOOT 1.8
-# define ROT_SPEED 0.02
+# define ROT_SPEED 0.01
 
 # include "utils/utils.h"
-# include "../minilibx_opengl_20191021/mlx.h"
+# include "mlx.h"
 
 /*
 **error handling and exiting lol
@@ -80,6 +95,12 @@ int		lastline(t_pars *pars);
 */
 void 	ft_graphic(t_all *all);
 void	drawvline(t_all *all, int i);
+void    ft_raycast(t_all *all);
+int     ft_ispressed(int key, void *param);
+int     ft_isdone(int key, void *param);
+int     ft_iskill();
+int     deal_key(void *param);
+void    ft_init_keys(t_play *py);
 void	ft_moveright_left(t_play *py, t_pars *pars, int n);
 void	ft_moveup_down(t_play *py, t_pars *pars, int n);
 void	ft_turn(t_play *py, int n);

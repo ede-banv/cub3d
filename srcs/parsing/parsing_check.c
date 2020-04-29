@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_check.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 11:33:32 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/28 20:18:24 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/04/27 14:52:38 by softemma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int		check_elements(t_all *all)
 {
 	t_pars	pars;
-	int		i;
+//	int		i;
 
-	i = 0;
+//	i = 0;
 	pars = all->pars;
 	if (pars.f == 0 || pars.c == 0)
 		return (-1);
