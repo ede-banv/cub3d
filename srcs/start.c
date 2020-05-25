@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/04/28 20:40:16 by softemma         ###   ########.fr       */
+/*   Updated: 2020/05/25 15:46:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void	startprogram(char *file, int n)
 	close(fd);
 	(void)n;
 	ft_init_keys(&all->player);
+	ft_init_text(all);
 	ft_graphic(all);
 	/*
 	**this should return a fully malloqued & filled pars structure OR just exit by itself.

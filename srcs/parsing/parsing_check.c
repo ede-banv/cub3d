@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_check.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 11:33:32 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/04/27 14:52:38 by softemma         ###   ########.fr       */
+/*   Updated: 2020/05/19 15:00:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,30 +45,29 @@ int		ft_checksquare(t_pars pars)
 	return (1);
 }
 
-int		ft_nonsquare_end(int *map, int *w, int *i)
+int		ft_nonsquare_end(int **map, int *w, int *i)
 {
 	int	j;
 
-	j = 0;
 	if (w[*i] > w[*i - 1])
 	{
-		while (w[*i - 1] - w[*i] < j)
+		j = w[*i - 1];
+		while (j < w[*i])
 		{
-			if (map[w[*i - 1] + j] != 1)
+			if (map[*i][j] != 1)
 				return (-1);
 			j++;
 		}
 	}
 	else if (w[*i] < w[*i - 1])
 	{
-		(map)--;
-		while (w[*i - 1] - w[*i] > j)
+		j = w[*i];
+		while (j < w[*i - 1])
 		{
-			if (map[w[*i] + j] != 1)
+			if (map[*i - 1][j] != 1)
 				return (-1);
 			j++;
 		}
-		(map)++;
 	}
 	return (1);
 }
@@ -86,7 +85,7 @@ int		ft_nonsquare(t_pars *pars)
 	{
 		if (i >= 1)
 		{
-			if (ft_nonsquare_end(map[i], w, &i) == -1)
+			if (ft_nonsquare_end(map, w, &i) == -1)
 				return (-1);
 		}
 		i++;

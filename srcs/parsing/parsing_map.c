@@ -3,15 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 21:20:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/03/09 16:44:51 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/05/09 21:03:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
+
+//a changer pour le nouveau parsing: les espaces peuvent etre vus comme des 1
+//donc les espaces entre les caracteres ne sont plus a prendre en compte
+//donc il faut revoir pour que ce soit un espace compte comme un 1
+//a verifier avec les gens 
 int		newlen(char *str)
 {
 	int	i;
@@ -20,7 +25,7 @@ int		newlen(char *str)
 	while (*str)
 	{
 		if (*str == '1' || *str == '0' || *str == '2' || *str == 'N' ||
-		*str == 'S' || *str == 'E' || *str == 'N')
+		*str == 'S' || *str == 'E' || *str == 'N' || *str == ' ')
 			i++;
 		str++;
 	}
@@ -43,6 +48,8 @@ int		*ft_cleanline(char *str, int len)
 			final[i] = ft_isdigit(*str) ? *str - 48 : *str;
 			i++;
 		}
+		if (*str == ' ')
+			final[i++] = 1;
 		str++;
 	}
 	if (final[0] != 1 || final[i - 1] != 1)

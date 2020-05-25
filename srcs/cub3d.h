@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/04/29 16:21:43 by softemma         ###   ########.fr       */
+/*   Updated: 2020/05/25 15:43:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@
 # define BIG_FOOT 1.8
 # define ROT_SPEED 0.01
 
+# define TEXWIDTH 64
+
 # include "utils/utils.h"
 # include "mlx.h"
 
@@ -95,6 +97,8 @@ int		lastline(t_pars *pars);
 */
 void 	ft_graphic(t_all *all);
 void	drawvline(t_all *all, int i);
+void    ft_init_text(t_all *all);
+void    texturedraw(t_all *all, int i, char *texture)
 void    ft_raycast(t_all *all);
 int     ft_ispressed(int key, void *param);
 int     ft_isdone(int key, void *param);
