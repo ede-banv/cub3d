@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/29 18:22:43 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/29 18:58:24 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int		lastline(t_pars *pars);
 void 	ft_graphic(t_all *all);
 void	ft_drawvline(t_all *all, int i);
 void    ft_init_text(t_all *all);
-int	    ft_texturedraw(t_all *all, int i);
+int	    ft_texturedraw(t_all *all, int i, int j);
 void    ft_raycast(t_all *all);
 int     ft_ispressed(int key, void *param);
 int     ft_isdone(int key, void *param);
