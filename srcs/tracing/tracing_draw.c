@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 14:58:35 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/29 18:58:14 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/29 19:08:36 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,14 @@ void	ft_init_text(t_all *all)
 
 
 int		ft_draw_ns(int i, t_play *py, t_txtr *textadd, t_all *all, int j)
-{(void)j;
+{
 	if (py->raydir.y >= 0)
 	{
 		while (all->win.img.dstart < all->win.img.dend)   //sud
 		{
 			py->texty = abs((((all->win.img.dstart * 256 - all->pars.res[1]
 			* 128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
-			ft_memcpy(all->win.img.data + 4 * all->pars.res[0] * all->win.img.dstart
-			+ i * 4, &textadd->so[py->texty % 64 * all->pars.texture.tsize_l[1] +
+			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i], &textadd->so[py->texty % 64 * all->pars.texture.tsize_l[1] +
 			py->textx % 64 * all->pars.texture.tbpp[1] / 8], sizeof(int));
 			all->win.img.dstart++;
 		}
@@ -69,8 +68,7 @@ int		ft_draw_ns(int i, t_play *py, t_txtr *textadd, t_all *all, int j)
 		{
 			py->texty = abs((((all->win.img.dstart * 256 - all->pars.res[1]
 			* 128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
-			ft_memcpy(all->win.img.data + 4 * all->pars.res[0] * all->win.img.dstart
-			+ i * 4, &textadd->no[py->texty % 64 * all->pars.texture.tsize_l[0] +
+			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i], &textadd->no[py->texty % 64 * all->pars.texture.tsize_l[0] +
 			py->textx % 64 * all->pars.texture.tbpp[0] / 8], sizeof(int));
 			all->win.img.dstart++;
 		}
@@ -86,8 +84,7 @@ int		ft_draw_ew(int i, t_play *py, t_txtr *textadd, t_all *all, int j)
 		{
 			py->texty = abs((((all->win.img.dstart * 256 - all->pars.res[1]
 			* 128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
-			ft_memcpy(all->win.img.data + 4 * all->pars.res[0] * all->win.img.dstart
-			+ i * 4, &(textadd->ea)[py->texty % 64 * all->pars.texture.tsize_l[2] +
+			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i], &(textadd->ea)[py->texty % 64 * all->pars.texture.tsize_l[2] +
 			py->textx % 64 * all->pars.texture.tbpp[2] / 8], sizeof(int));
 			all->win.img.dstart++;
 		}

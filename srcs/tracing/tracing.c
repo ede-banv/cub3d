@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 21:51:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/29 18:04:55 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/29 19:17:34 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ void	ft_graphic(t_all *all)
 //	{
 		mlx_hook(all->win.win_ptr, 2, 1L<<0, ft_ispressed, all);
 		mlx_hook(all->win.win_ptr, 3, 1L<<1, ft_isdone, all);
-		mlx_hook(all->win.win_ptr, 17, 1L<<17, ft_iskill, (void *)0);
+		mlx_hook(all->win.win_ptr, 17, 1L<<17, ft_iskill, all);
 		mlx_loop_hook(all->win.mlx_ptr, deal_key, all); //fct qui va bouger et raycaster
 		mlx_loop(all->win.mlx_ptr);
 //	}

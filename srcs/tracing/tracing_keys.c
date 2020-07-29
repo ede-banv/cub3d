@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tracing_keys.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 20:33:18 by softemma          #+#    #+#             */
-/*   Updated: 2020/04/29 16:54:20 by softemma         ###   ########.fr       */
+/*   Updated: 2020/07/29 19:41:28 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,28 @@ int		ft_isdone(int key, void *param)
 
 int		ft_iskill(void *param)
 {
-	t_all *all;
+	t_all	*all;
+	int		i;
+
+	i = 0;
 	all = (t_all *)param;
-	mlx_clear_window(all->win.mlx_ptr, all->win.win_ptr);
-	mlx_destroy_window(all->win.mlx_ptr, all->win.win_ptr);
+	while (all->pars.map != NULL)
+	{
+		free(all->pars.map[i]);
+		i++;
+	}
+	if (all->pars.map != NULL)
+	{
+		free(all->pars.map[i]);
+		free(all->pars.map);
+	}
+	if (all->win.mlx_ptr != NULL && all->win.win_ptr != NULL)
+	{
+		mlx_clear_window(all->win.mlx_ptr, all->win.win_ptr);
+		mlx_destroy_window(all->win.mlx_ptr, all->win.win_ptr);
+	}
 	exit(0);
-	return (0);
+	return (1);
 }
 
 int		deal_key(void *param)
