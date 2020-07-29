@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:54:24 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/05/25 15:43:08 by marvin           ###   ########.fr       */
+/*   Updated: 2020/07/29 18:05:07 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 /*
 **map structures
 */
+
+
 typedef struct	s_txtr
 {
 	char	*no;
@@ -23,6 +25,9 @@ typedef struct	s_txtr
 	char	*we;
 	char	*ea;
 	char	*sp;
+	int		tbpp[5];
+	int		tsize_l[5];
+	int		tendian[5];
 }				t_txtr;
 
 typedef struct	s_pars
@@ -110,6 +115,9 @@ typedef struct	s_play
 	int		stepx;
 	int		stepy;
 	t_mov	mov;
+	double	wallx;
+	int		textx;
+	int		texty;
 }				t_play;
 
 /*

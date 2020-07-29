@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/05/25 15:43:42 by marvin           ###   ########.fr       */
+/*   Updated: 2020/07/29 18:22:43 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
-/*
+
+//mac
 //ARROW POUR TOURNER
 # define ARROW_UP 126
 # define ARROW_DOWN 125
@@ -28,7 +29,8 @@
 
 
 # define ESC_KEY 53
-*/
+/*
+//LINUX
 # define ARROW_LEFT 65361
 # define ARROW_RIGHT  65363
 
@@ -39,7 +41,7 @@
 
 
 # define ESC_KEY 65307
-
+*/
 # define SHIFT_KEY 257
 # define C_KEY 8
 # define R_KEY 15
@@ -96,9 +98,9 @@ int		lastline(t_pars *pars);
 **fonctions d'affichage et de graphique
 */
 void 	ft_graphic(t_all *all);
-void	drawvline(t_all *all, int i);
+void	ft_drawvline(t_all *all, int i);
 void    ft_init_text(t_all *all);
-void    texturedraw(t_all *all, int i, char *texture)
+int	    ft_texturedraw(t_all *all, int i);
 void    ft_raycast(t_all *all);
 int     ft_ispressed(int key, void *param);
 int     ft_isdone(int key, void *param);

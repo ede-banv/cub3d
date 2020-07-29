@@ -30,7 +30,7 @@ int deal_key(int key, void *param)
     ft_putnbr(key);
     ft_putchar(' ');
     return (0);
-}
+}ef
 /*
 int test()
 {
@@ -50,7 +50,7 @@ int main()
 {
     void *mlx_ptr;
     void *win_ptr;
-    void *image;
+;    void *image;
     int *data;
     int bpp;
     int sizel;

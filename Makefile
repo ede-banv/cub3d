@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: softemma <softemma@student.42.fr>          +#+  +:+       +#+         #
+#    By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/04/28 20:40:47 by softemma         ###   ########.fr        #
+#    Updated: 2020/07/29 12:38:24 by ede-banv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 DEBUG = -g3 -fsanitize=address
 
-#MLX_FLAGS = -lft -lmlx -framework OpenGL -framework AppKit
-#MLX_PATH = ./minilibx_opengl_20191021/
-MLX_FLAGS = -lft -lmlx -lX11 -lbsd -lXext
-MLX_PATH = ./minilibx-linux/
+MLX_FLAGS = -lft -lmlx -framework OpenGL -framework AppKit
+MLX_PATH = ./minilibx_opengl_20191021/
+#MLX_FLAGS = -lft -lmlx -lX11 -lbsd -lXext
+#MLX_PATH = ./minilibx-linux/
 MLX_NAME = libmlx.a
 
 PARSING_PATH = parsing/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tracing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 21:51:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/05/25 15:44:35 by marvin           ###   ########.fr       */
+/*   Updated: 2020/07/29 18:04:55 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	ft_wallcalc(t_all *all, int i)
 	all->win.img.dend = all->win.img.lineh / 2 + all->pars.res[1] / 2;
 	if (all->win.img.dend >= all->pars.res[1])
 		all->win.img.dend = all->pars.res[1] - 1;
-	drawvline(all, i);
+	ft_drawvline(all, i);
 }
 
 void	ft_raycast(t_all *all)
