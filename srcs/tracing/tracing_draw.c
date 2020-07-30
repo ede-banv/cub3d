@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 14:58:35 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/29 19:08:36 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/30 12:32:09 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,9 @@ int		ft_draw_ns(int i, t_play *py, t_txtr *textadd, t_all *all, int j)
 		{
 			py->texty = abs((((all->win.img.dstart * 256 - all->pars.res[1]
 			* 128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
-			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i], &textadd->so[py->texty % 64 * all->pars.texture.tsize_l[1] +
-			py->textx % 64 * all->pars.texture.tbpp[1] / 8], sizeof(int));
+			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i],
+			&textadd->so[py->texty % 64 * all->pars.texture.tsize_l[1] +
+			(63 - py->textx % 64) * all->pars.texture.tbpp[1] / 8], sizeof(int));
 			all->win.img.dstart++;
 		}
 	}
@@ -68,8 +69,9 @@ int		ft_draw_ns(int i, t_play *py, t_txtr *textadd, t_all *all, int j)
 		{
 			py->texty = abs((((all->win.img.dstart * 256 - all->pars.res[1]
 			* 128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
-			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i], &textadd->no[py->texty % 64 * all->pars.texture.tsize_l[0] +
-			py->textx % 64 * all->pars.texture.tbpp[0] / 8], sizeof(int));
+			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i],
+			&textadd->no[py->texty % 64 * all->pars.texture.tsize_l[0] +
+			(63 - py->textx % 64) * all->pars.texture.tbpp[0] / 8], sizeof(int));
 			all->win.img.dstart++;
 		}
 	}
@@ -84,8 +86,9 @@ int		ft_draw_ew(int i, t_play *py, t_txtr *textadd, t_all *all, int j)
 		{
 			py->texty = abs((((all->win.img.dstart * 256 - all->pars.res[1]
 			* 128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
-			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i], &(textadd->ea)[py->texty % 64 * all->pars.texture.tsize_l[2] +
-			py->textx % 64 * all->pars.texture.tbpp[2] / 8], sizeof(int));
+			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i],
+			&(textadd->ea)[py->texty % 64 * all->pars.texture.tsize_l[2] +
+			(63 - py->textx % 64) * all->pars.texture.tbpp[2] / 8], sizeof(int));
 			all->win.img.dstart++;
 		}
 	}
@@ -103,8 +106,9 @@ int		ft_draw_ew(int i, t_play *py, t_txtr *textadd, t_all *all, int j)
 			//ft_putnbr_fd(py->texty, 1);
 			py->texty = abs((((all->win.img.dstart * 256 - all->pars.res[1]
 			* 128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
-			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i], &textadd->we[py->texty % 64 * all->pars.texture.tsize_l[3] +
-			py->textx % 64 * all->pars.texture.tbpp[3] / 8], sizeof(int));
+			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i],
+			&textadd->we[py->texty % 64 * all->pars.texture.tsize_l[3] +
+			(63 - py->textx % 64) * all->pars.texture.tbpp[3] / 8], sizeof(int));
 			all->win.img.dstart++;
 		}
 	}

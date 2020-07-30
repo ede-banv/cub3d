@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/29 18:58:24 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/30 12:11:51 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@
 # define MAXRES_X 2560
 # define MAXRES_Y 1440
 //speed
-# define FOOT_STEP 0.05
+# define FOOT_STEP 0.15
 # define BIG_FOOT 1.8
-# define ROT_SPEED 0.01
+# define ROT_SPEED 0.08
 
 # define TEXWIDTH 64
 
