@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/31 16:18:03 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/31 17:01:35 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void    ft_raycast(t_all *all);
 **sprites
 */
 void	ft_locspr(t_all *all);
+void	ft_sprites(t_all *all, t_sp *sp, int sp_nb);
 
 /*
 **keys and events

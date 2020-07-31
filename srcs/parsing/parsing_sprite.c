@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/31 16:08:33 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/31 16:13:58 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/31 18:46:48 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	ft_locspr(t_all *all)
 		{
 			if (all->pars.map[i][j] == 2 && sprite_count < 50)
 			{
-				all->sp[sprite_count].x = j;
-				all->sp[sprite_count++].y = i;
+				all->sp[sprite_count].x = j + 0.5;
+				all->sp[sprite_count++].y = i + 0.5;
 			}
 			j++;
 		}

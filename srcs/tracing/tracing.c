@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 21:51:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/31 16:17:52 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/31 19:19:20 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	ft_wallcalc(t_all *all, int i)
 		py->pwd = (py->mapx - py->p.x + (1 - py->stepx) / 2) / py->raydir.x;
 	else
 		py->pwd = (py->mapy - py->p.y + (1 - py->stepy) / 2) / py->raydir.y;
+	all->zbuff[i] = py->pwd;
 /*
 **calculate size to show on screen fr the wall
 */

@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 20:33:18 by softemma          #+#    #+#             */
-/*   Updated: 2020/07/29 19:41:28 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/31 19:18:03 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int		deal_key(void *param)
 	t_all *all;
 
 	all = (t_all *)param;
-//	ft_putstr_fd("here\n", 1);
 	if (all->player.mov.up == 1)
 		ft_moveup_down(&all->player, &all->pars, 1);
 	if (all->player.mov.down == 1)
@@ -102,7 +101,11 @@ int		deal_key(void *param)
 		ft_turn(&all->player, 1);
 	if (all->player.mov.close == 1)
 		exit(0);
+	if (!(all->zbuff = malloc(sizeof(double) * all->pars.res[0])))
+		ft_exit(3,0);
 	ft_raycast(all);
+	ft_sprites(all, all->sp, all->pars.sp);
+	free (all->zbuff);
 	return(1);
 }
 

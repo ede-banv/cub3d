@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:54:24 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/31 15:56:30 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/31 18:43:09 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ typedef struct	s_spt
 	int			draw_ey;
 	int			text_w;
 	int			text_h;
-	int			texx;
-	int			texy;
+	int			textx;
+	int			texty;
 	int			d;
 	int			texture;
 	int			i;
