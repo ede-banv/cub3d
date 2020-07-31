@@ -6,7 +6,7 @@
 #    By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/07/29 12:38:24 by ede-banv         ###   ########.fr        #
+#    Updated: 2020/07/31 16:17:08 by ede-banv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ MLX_NAME = libmlx.a
 
 PARSING_PATH = parsing/
 PARSING = parsing_data.c parsing_texture.c parsing_map.c parsing_check.c \
-parsing_end.c
+parsing_end.c parsing_sprite.c
 SRCS_PARSING = ${addprefix ${PARSING_PATH}, ${PARSING}}
 
 UTILS_PATH = utils/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 21:20:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/05/09 21:03:43 by marvin           ###   ########.fr       */
+/*   Updated: 2020/07/31 16:25:50 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //a changer pour le nouveau parsing: les espaces peuvent etre vus comme des 1
 //donc les espaces entre les caracteres ne sont plus a prendre en compte
 //donc il faut revoir pour que ce soit un espace compte comme un 1
-//a verifier avec les gens 
+//a verifier avec les gens
 int		newlen(char *str)
 {
 	int	i;
@@ -32,7 +32,7 @@ int		newlen(char *str)
 	return (i);
 }
 
-int		*ft_cleanline(char *str, int len)
+int		*ft_cleanline(char *str, int len, t_all *all)
 {
 	int		*final;
 	int		i;
@@ -50,6 +50,8 @@ int		*ft_cleanline(char *str, int len)
 		}
 		if (*str == ' ')
 			final[i++] = 1;
+		if (*str == '2')
+			all->pars.sp += 1;
 		str++;
 	}
 	if (final[0] != 1 || final[i - 1] != 1)
@@ -74,22 +76,22 @@ int		ft_checkmap(t_list **alst, t_all *all)
 	while (i < len)
 	{
 		all->pars.map[i] = lst->content;
-		all->pars.w[i] = lst->nb;
+		all->pars.w[i++] = lst->nb;
 		tmp = lst->next;
 		free(lst);
-		i++;
 		lst = tmp;
 	}
 	all->pars.map[len] = NULL;
+	ft_locspr(all);
 	return (1);
 }
 
-t_list	*ft_map_other(t_list *alst, char *data, int len, int n)
+t_list	*ft_map_other(t_list *alst, char *data, int len, int n, t_all *all)
 {
 	int		*tmp;
 	t_list	*lst;
 
-	if (!(tmp = ft_cleanline(data, len)))
+	if (!(tmp = ft_cleanline(data, len, all)))
 		ft_exit(3, 0);
 	if (!alst && n == 0)
 	{
@@ -125,9 +127,12 @@ void	ft_map(t_all *all, int fd, char *data)
 			ft_exit(2, 5);
 		if (len < 3)
 			ft_exit(2, 6);
-		alst = ft_map_other(alst, data, len, n);
+		alst = ft_map_other(alst, data, len, n, all);
 		(data && n == 1) ? free(data) : n++;
 	}
 	ft_checkmap(&alst, all);
 	ft_lstclear(&alst, NULL);
+	ft_putnbr_fd(all->sp[1].x, 1);
+	ft_putchar_fd(' ', 1);
+	ft_putnbr_fd(all->sp[1].y, 1);
 }

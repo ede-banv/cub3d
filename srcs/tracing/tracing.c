@@ -6,13 +6,13 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 21:51:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/29 19:17:34 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/31 16:17:52 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	ft_init(t_all *all, int i)
+void	ft_init_raycast(t_all *all, int i)
 {
 	t_play	*py;
 	double	camerax;
@@ -128,7 +128,7 @@ void	ft_raycast(t_all *all)
 	i = 0;
 	while (i < all->pars.res[0])
 	{
-		ft_init(all, i);
+		ft_init_raycast(all, i);
 		ft_startrc(all);
 		ft_firstraydir(all);
 		ft_dda(all);

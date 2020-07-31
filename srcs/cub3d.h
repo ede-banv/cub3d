@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/30 12:11:51 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/31 16:18:03 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,6 @@
 # include "mlx.h"
 
 /*
-**error handling and exiting lol
-*/
-void	ft_exit(int n, int e);
-
-/*
 **actual meat
 */
 void	startprogram(char *file, int n);
@@ -102,6 +97,15 @@ void	ft_drawvline(t_all *all, int i);
 void    ft_init_text(t_all *all);
 int	    ft_texturedraw(t_all *all, int i, int j);
 void    ft_raycast(t_all *all);
+
+/*
+**sprites
+*/
+void	ft_locspr(t_all *all);
+
+/*
+**keys and events
+*/
 int     ft_ispressed(int key, void *param);
 int     ft_isdone(int key, void *param);
 int     ft_iskill();
@@ -110,5 +114,10 @@ void    ft_init_keys(t_play *py);
 void	ft_moveright_left(t_play *py, t_pars *pars, int n);
 void	ft_moveup_down(t_play *py, t_pars *pars, int n);
 void	ft_turn(t_play *py, int n);
+
+/*
+**error handling and freeing memory
+*/
+void	ft_exit(int n, int e);
 
 #endif

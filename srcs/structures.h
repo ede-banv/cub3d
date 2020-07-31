@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:54:24 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/29 18:05:07 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/07/31 15:56:30 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct	s_pars
 	int		c;
 	int		**map;
 	int		*w;
+	int		sp;
 }				t_pars;
 
 /*
@@ -84,6 +85,33 @@ typedef struct	s_vec
 	double	y;
 }				t_vec;
 
+typedef struct	s_sp
+{
+	double		x;
+	double		y;
+}				t_sp;
+
+typedef struct	s_spt
+{
+	double		inv_det;
+	double		transform_x;
+	double		transform_y;
+	int			move_screen;
+	int			spr_h;
+	int			spr_w;
+	int			screen_x;
+	int			draw_sx;
+	int			draw_ex;
+	int			draw_sy;
+	int			draw_ey;
+	int			text_w;
+	int			text_h;
+	int			texx;
+	int			texy;
+	int			d;
+	int			texture;
+	int			i;
+}				t_spt;
 /*
 **p is the position of the player
 **dir is the direction vector of the player
@@ -121,18 +149,6 @@ typedef struct	s_play
 }				t_play;
 
 /*
-**minimap structure
-**ori: for minimap
-*/
-typedef struct	s_ori
-{
-	char	*n;
-	char	*s;
-	char	*e;
-	char	*w;
-}				t_ori;
-
-/*
 **big boy des structures
 **pars: done
 **win: malloc?
@@ -144,7 +160,11 @@ typedef struct	s_all
 	t_pars	pars;
 	t_win	win;
 	t_play	player;
-	t_ori	mm;
+	t_sp	sp[50]; //a voir pk 50 lol
+	t_spt	spt;
+	double	*zbuff;
+	int		save;
+
 }				t_all;
 
 #endif

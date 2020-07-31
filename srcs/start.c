@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/05/25 15:46:09 by marvin           ###   ########.fr       */
+/*   Updated: 2020/07/31 16:22:39 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,13 @@ void	parsing(t_all *all, int fd)
 	}
 }
 
+void	ft_init(t_all *all)
+{
+	all->pars.sp = 0;
+	all->save = 0;
+	ft_init_keys(&all->player);
+}
+
 void	startprogram(char *file, int n)
 {
 	t_all	*all;
@@ -93,11 +100,12 @@ void	startprogram(char *file, int n)
 		ft_exit(1, 4);
 	if (!(all->win.mlx_ptr = mlx_init()))
 		ft_exit(3, 4);
+	ft_init(all);
+	if (n == 2)
+		all->save = 1;
 	parsing(all, fd);
-	close(fd);
-	(void)n;
-	ft_init_keys(&all->player);
 	ft_init_text(all);
+	close(fd);
 	ft_graphic(all);
 	/*
 	**this should return a fully malloqued & filled pars structure OR just exit by itself.
