@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 20:33:18 by softemma          #+#    #+#             */
-/*   Updated: 2020/07/31 19:18:03 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/03 16:19:51 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int		deal_key(void *param)
 		exit(0);
 	if (!(all->zbuff = malloc(sizeof(double) * all->pars.res[0])))
 		ft_exit(3,0);
-	ft_raycast(all);
+		ft_raycast(all);
 	ft_sprites(all, all->sp, all->pars.sp);
 	free (all->zbuff);
 	return(1);

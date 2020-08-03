@@ -6,11 +6,23 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/31 16:08:33 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/31 18:46:48 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/03 16:13:17 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+void	ft_init_tab(t_all *all)
+{
+	int	i;
+	i = 0;
+	while (i < 50)
+	{
+		all->sp[i].x = 0;
+		all->sp[i].y = 0;
+		i++;
+	}
+}
 
 void	ft_locspr(t_all *all)
 {

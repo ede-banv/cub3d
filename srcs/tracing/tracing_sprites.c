@@ -43,7 +43,7 @@ void	ft_sptxt(t_all *all, t_spt *sptxt)
 	}
 }
 
-void	ft_draw_sp(t_all *all, t_spt *sptxt, t_sp *sp, int *sp_order)
+void	ft_calc_sp(t_all *all, t_spt *sptxt, t_sp *sp, int *sp_order)
 {
 	sp->x = sp[sp_order[sptxt->i]].x - all->player.p.x;
 	sp->y = sp[sp_order[sptxt->i]].y - all->player.p.y;
@@ -82,15 +82,16 @@ void	ft_check_sp_dist(int sp, int *sp_order, double *sp_dist)
 	{
 		if (sp_dist[i] > sp_dist[i + 1])
 		{
-			tmp_dist = sp_dist[i];
-			sp_dist[i] = sp_dist[i + 1];
-			sp_dist[i + 1] = tmp_dist;
-			tmp_ordr = sp_order[i];
-			sp_order[i] = sp_order[i + 1];
-			sp_order[i + 1] = tmp_ordr;
-			i = -1;
+			tmp_dist = sp_dist[i + 1];
+			sp_dist[i + 1] = sp_dist[i];
+			sp_dist[i] = tmp_dist;
+			tmp_ordr = sp_order[i + 1];
+			sp_order[i + 1] = sp_order[i];
+			sp_order[i] = tmp_ordr;
+			i = 0;
 		}
-		i++;
+		else
+			i++;
 	}
 }
 
@@ -116,11 +117,16 @@ void	ft_sprites(t_all *all, t_sp *sp, int sp_nb)
 	double		sp_dist[sp_nb];
 	t_spt		sptxt;
 
+	/*ft_putchar_fd('\n', 1);
+	ft_putnbr_fd(all->sp[0].x, 1);
+	ft_putchar_fd(' ', 1);
+	ft_putnbr_fd(all->sp[0].y, 1);
+	ft_putchar_fd('\n', 1);*/
 	ft_init_sp(all, sp, sp_dist, sp_order);
 	sptxt.i = sp_nb - 1;
 	while (sptxt.i >= 0)
 	{
-		ft_draw_sp(all, &sptxt, sp, sp_order);
+		ft_calc_sp(all, &sptxt, sp, sp_order);
 		ft_sptxt(all, &sptxt);
 		sptxt.i--;
 	}
