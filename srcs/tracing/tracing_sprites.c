@@ -31,12 +31,12 @@ void	ft_sptxt(t_all *all, t_spt *sptxt)
 			sptxt->texty = ((sptxt->d * TEXWIDTH) / sptxt->spr_h) / 256;
 			if (all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
 				+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8] != 0)
-				ft_memcpy(all->win.img.data + 4 * all->pars.res[0] * j + i * 4,
-				&all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
-				+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8], sizeof(int));
-				/*ft_memcpy(&all->win.img.data[j * all->pars.res[0] + i],
+				/*ft_memcpy(all->win.img.data + 4 * all->pars.res[0] * j + i * 4,
 				&all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
 				+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8], sizeof(int));*/
+				ft_memcpy(&all->win.img.data[j * all->pars.res[0] + i],
+				&all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
+				+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8], sizeof(int));
 			j++;
 		}
 		i++;
@@ -124,4 +124,5 @@ void	ft_sprites(t_all *all, t_sp *sp, int sp_nb)
 		ft_sptxt(all, &sptxt);
 		sptxt.i--;
 	}
+	mlx_put_image_to_window(all->win.mlx_ptr, all->win.win_ptr, all->win.img.image, 0, 0);
 }
