@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 14:58:35 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/31 16:29:50 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/04 13:03:11 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,16 +94,8 @@ int		ft_draw_ew(int i, t_play *py, t_txtr *textadd, t_all *all, int j)
 	}
 	else
 	{
-		//ft_putstr_fd("textx: ", 1);
-		//ft_putnbr_fd(py->textx, 1);
-		//	ft_putnbr_fd(all->win.img.dstart, 1);
-		//	ft_putchar_fd(' ', 1);
-		//	ft_putnbr_fd(all->win.img.dend, 1);
-		//	ft_putchar_fd('\n', 1);
 		while (all->win.img.dstart < all->win.img.dend) //ouest
 		{
-			//ft_putstr_fd("\ntexty: ", 1);
-			//ft_putnbr_fd(py->texty, 1);
 			py->texty = abs((((all->win.img.dstart * 256 - all->pars.res[1]
 			* 128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
 			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i],
@@ -144,40 +136,3 @@ int		ft_texturedraw(t_all *all, int i, int j)
 		return (-1);
 	return (1);
 }
-//--------------
-
-
-/* void	texturedraw(t_all *all, int i, char *texture)
-{
-	double wallx;
-	int textx;
-	int texty;
-	t_play *py;
-	int		x;
-
-	py = &all->player;
-	x = all->win.img.dstart;
-	if (py->side == 0)
-		wallx = py->p.y + py->pwd * py->raydir.y;
-	else
-		wallx = py->p.x + py->pwd * py->raydir.x;
-	textx = (int)(wallx * (double)TEXWIDTH);
-	if (py->side == 0 && py->raydir.x > 0)
-		textx = TEXWIDTH - textx - 1;
-	if (py->side == 1 && py->raydir.y < 0)
-		textx = TEXWIDTH - textx - 1;
-	while (x < all->win.img.dend)
-	{
-		texty = abs((((x * 256 - all->pars.res[1] +
-		all->win.img.lineh * 128) * 64) /
-		all->win.img.lineh) / 256);
-		ft_memcpy(all->win.img.data + 4 * all->pars.res[0] * x + 4 * i,
-			&texture[texty % 64 *
-			all->win.img.size_l + textx % 64 *
-			all->win.img.bpp / 8], sizeof(int));
-	} */
-
-	/*version de red1
-	textx = TEXWIDTH - textx - 1;
-	textx = abs(textx);
-}*/

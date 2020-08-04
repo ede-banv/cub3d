@@ -31,9 +31,6 @@ void	ft_sptxt(t_all *all, t_spt *sptxt)
 			sptxt->texty = ((sptxt->d * TEXWIDTH) / sptxt->spr_h) / 256;
 			if (all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
 				+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8] != 0)
-				/*ft_memcpy(all->win.img.data + 4 * all->pars.res[0] * j + i * 4,
-				&all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
-				+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8], sizeof(int));*/
 				ft_memcpy(&all->win.img.data[j * all->pars.res[0] + i],
 				&all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
 				+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8], sizeof(int));
@@ -45,14 +42,14 @@ void	ft_sptxt(t_all *all, t_spt *sptxt)
 
 void	ft_calc_sp(t_all *all, t_spt *sptxt, t_sp *sp, int *sp_order)
 {
-	sp->x = sp[sp_order[sptxt->i]].x - all->player.p.x;
-	sp->y = sp[sp_order[sptxt->i]].y - all->player.p.y;
+	sptxt->x = sp[sp_order[sptxt->i]].x - all->player.p.x;
+	sptxt->y = sp[sp_order[sptxt->i]].y - all->player.p.y;
 	sptxt->inv_det = 1.0 / (all->player.plane.x * all->player.dir.y
 	- all->player.dir.x * all->player.plane.y);
-	sptxt->transform_x = sptxt->inv_det * (all->player.dir.y * sp->x
-	- all->player.dir.x * sp->y);
-	sptxt->transform_y = sptxt->inv_det * (-all->player.plane.y * sp->x
-	+ all->player.plane.x * sp->y);
+	sptxt->transform_x = sptxt->inv_det * (all->player.dir.y * sptxt->x
+	- all->player.dir.x * sptxt->y);
+	sptxt->transform_y = sptxt->inv_det * (-all->player.plane.y * sptxt->x
+	+ all->player.plane.x * sptxt->y);
 	sptxt->screen_x = (int)((all->pars.res[0] / 2) *
 	(1 + sptxt->transform_x / sptxt->transform_y));
 	sptxt->spr_h = abs((int)(all->pars.res[1] / sptxt->transform_y));

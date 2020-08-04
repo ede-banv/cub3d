@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:54:24 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/31 18:43:09 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/04 12:58:57 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ typedef struct	s_sp
 
 typedef struct	s_spt
 {
+	double		x;
+	double		y;
 	double		inv_det;
 	double		transform_x;
 	double		transform_y;

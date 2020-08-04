@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 21:20:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/03 16:11:59 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/04 12:59:07 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,10 +132,4 @@ void	ft_map(t_all *all, int fd, char *data)
 	}
 	ft_checkmap(&alst, all);
 	ft_lstclear(&alst, NULL);
-
-	ft_putchar_fd('\n', 1);
-	ft_putnbr_fd(all->sp[0].x, 1);
-	ft_putchar_fd(' ', 1);
-	ft_putnbr_fd(all->sp[0].y, 1);
-	ft_putchar_fd('\n', 1);
 }
