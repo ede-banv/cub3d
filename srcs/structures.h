@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:54:24 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/04 12:58:57 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/04 14:43:32 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct	s_txtr
 typedef struct	s_pars
 {
 	int		res[2];
+	int		screenw;
+	int		screenh;
 	t_txtr	texture;
 	t_txtr	textadd;
 	int		f;
@@ -135,6 +137,8 @@ typedef struct	s_play
 	t_vec	dir;
 	t_vec	plane;
 	t_vec	raydir;
+	double	speed;
+	double	rotspeed;
 	int		mapx;
 	int		mapy;
 	t_vec	deltadist;
@@ -162,7 +166,7 @@ typedef struct	s_all
 	t_pars	pars;
 	t_win	win;
 	t_play	player;
-	t_sp	sp[50]; //a voir pk 50 lol
+	t_sp	sp[50];
 	t_spt	spt;
 	double	*zbuff;
 	int		save;

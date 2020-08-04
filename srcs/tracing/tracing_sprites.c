@@ -16,6 +16,7 @@ void	ft_sptxt(t_all *all, t_spt *sptxt)
 {
 	int i;
 	int j;
+	int pixel;
 
 	i = sptxt->draw_sx;
 	while (i < sptxt->draw_ex)
@@ -29,11 +30,12 @@ void	ft_sptxt(t_all *all, t_spt *sptxt)
 			sptxt->d = j * 256 - all->pars.res[1] * 128 + sptxt->spr_h
 			* 128;
 			sptxt->texty = ((sptxt->d * TEXWIDTH) / sptxt->spr_h) / 256;
-			if (all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
-				+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8] != 0)
-				ft_memcpy(&all->win.img.data[j * all->pars.res[0] + i],
-				&all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
-				+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8], sizeof(int));
+			ft_memcpy(&pixel,
+					&all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
+					+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8], sizeof(int));
+			if (pixel != 0 && pixel != -16777216 && pixel != 9961608)
+					ft_memcpy(&all->win.img.data[j * all->pars.res[0] + i],
+					&pixel, sizeof(int));
 			j++;
 		}
 		i++;
@@ -114,11 +116,6 @@ void	ft_sprites(t_all *all, t_sp *sp, int sp_nb)
 	double		sp_dist[sp_nb];
 	t_spt		sptxt;
 
-	/*ft_putchar_fd('\n', 1);
-	ft_putnbr_fd(all->sp[0].x, 1);
-	ft_putchar_fd(' ', 1);
-	ft_putnbr_fd(all->sp[0].y, 1);
-	ft_putchar_fd('\n', 1);*/
 	ft_init_sp(all, sp, sp_dist, sp_order);
 	sptxt.i = sp_nb - 1;
 	while (sptxt.i >= 0)

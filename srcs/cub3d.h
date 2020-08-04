@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/31 17:01:35 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/04 14:50:58 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 //mac
 //ARROW POUR TOURNER
-# define ARROW_UP 126
-# define ARROW_DOWN 125
 # define ARROW_LEFT 123
 # define ARROW_RIGHT 124
 # define EXIT_CODE 53
@@ -42,22 +40,19 @@
 
 # define ESC_KEY 65307
 */
-# define SHIFT_KEY 257
-# define C_KEY 8
-# define R_KEY 15
-# define P_KEY 35
+
+//mac
+# define SHIFT_KEY 257 //speed button
 # define SPACE_KEY 49
-# define M_KEY 46
-# define L_KEY 37
-# define I_KEY 34
-# define O_KEY 31
-//for res
+
+//for res (a changer avec le get screen size)
 # define MAXRES_X 2560
 # define MAXRES_Y 1440
 //speed
-# define FOOT_STEP 0.15
-# define BIG_FOOT 1.8
-# define ROT_SPEED 0.08
+# define FOOT_STEP 0.09
+# define FAST_STEP 0.15
+# define ROT_SPEED 0.05
+# define FAST_ROT 0.08
 
 # define TEXWIDTH 64
 

@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/03 16:19:01 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/04 14:46:19 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	ft_init(t_all *all)
 {
 	all->pars.sp = 0;
 	all->save = 0;
+	all->player.speed = FOOT_STEP;
+	all->player.rotspeed = ROT_SPEED;
 	ft_init_keys(&all->player);
 }
 
