@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 20:33:18 by softemma          #+#    #+#             */
-/*   Updated: 2020/08/03 16:27:31 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/05 17:04:21 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,16 @@ int		ft_iskill(void *param)
 
 	i = 0;
 	all = (t_all *)param;
-	while (all->pars.map != NULL)
+	while (all->pars.map != NULL && all->pars.map[i] != NULL)
 	{
 		free(all->pars.map[i]);
 		i++;
 	}
-	if (all->pars.map != NULL)
+	if (all->pars.map != NULL && all->pars.map[i] != NULL)
 	{
 		free(all->pars.map[i]);
 		free(all->pars.map);
+		all->pars.map = NULL;
 	}
 	if (all->win.mlx_ptr != NULL && all->win.win_ptr != NULL)
 	{

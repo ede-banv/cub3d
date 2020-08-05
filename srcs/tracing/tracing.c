@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 21:51:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/04 13:04:21 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/05 16:56:20 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,6 @@ void	ft_raycast(t_all *all)
 		ft_wallcalc(all, i);
 		i++;
 	}
-//	mlx_put_image_to_window(all->win.mlx_ptr, all->win.win_ptr, all->win.img.image, 0, 0);
 }
 
 void	ft_graphic(t_all *all)
@@ -147,12 +146,9 @@ void	ft_graphic(t_all *all)
 		ft_exit(3, 0);
 	if (!(all->win.img.data = (int *)mlx_get_data_addr(all->win.img.image, &all->win.img.bpp, &all->win.img.size_l, &all->win.img.endian)))
 		ft_exit(3, 0);
-//	while (1)
-//	{
 		mlx_hook(all->win.win_ptr, 2, 1L<<0, ft_ispressed, all);
 		mlx_hook(all->win.win_ptr, 3, 1L<<1, ft_isdone, all);
 		mlx_hook(all->win.win_ptr, 17, 1L<<17, ft_iskill, all);
-		mlx_loop_hook(all->win.mlx_ptr, deal_key, all); //fct qui va bouger et raycaster
+		mlx_loop_hook(all->win.mlx_ptr, deal_key, all);
 		mlx_loop(all->win.mlx_ptr);
-//	}
 }

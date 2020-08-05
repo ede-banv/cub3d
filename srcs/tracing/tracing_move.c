@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 00:17:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/04 14:55:21 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/05 16:44:23 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ void	ft_moveright_left(t_play *py, t_pars *pars, int n)
 	if (n == 1) //right
 	{
 		if (pars->map[(int)(py->p.y + py->plane.y * py->speed)][(int)py->p.x] != 1)
-			py->p.x += py->plane.x * py->speed;
-		if (pars->map[(int)py->p.y][(int)(py->p.x + py->plane.x * py->speed)] != 1)
 			py->p.y += py->plane.y * py->speed;
+		if (pars->map[(int)py->p.y][(int)(py->p.x + py->plane.x * py->speed)] != 1)
+			py->p.x += py->plane.x * py->speed;
 	}
 	else if (n == 2) //left
 	{
-		if (pars->map[(int)py->p.y][(int)(py->p.x - py->plane.x * py->speed)] == 0)
+		if (pars->map[(int)py->p.y][(int)(py->p.x - py->plane.x * py->speed)] != 1)
 			py->p.x -= py->plane.x * py->speed;
-		if (pars->map[(int)(py->p.y - py->plane.y * py->speed)][(int)py->p.x] == 0)
+		if (pars->map[(int)(py->p.y - py->plane.y * py->speed)][(int)py->p.x] != 1)
 			py->p.y -= py->plane.y * py->speed;
 	}
 }

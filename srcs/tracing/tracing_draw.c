@@ -6,7 +6,7 @@
 /*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 14:58:35 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/04 13:03:11 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/05 17:06:48 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,28 @@ void	ft_drawvline(t_all *all, int i)
 		img->data[j++ * width + i] = all->pars.f;
 }
 
-//intialiser les structures avec get data address et les stocker qqpart (textaddr) (done)
-//je dois le mettre avant le get data adrr de mon image (done
 void	ft_init_text(t_all *all)
 {
-	all->pars.textadd.no = mlx_get_data_addr(all->pars.texture.no,
-			&all->pars.texture.tbpp[0], &all->pars.texture.tsize_l[0], &all->pars.texture.tendian[0]);
-	all->pars.textadd.so = mlx_get_data_addr(all->pars.texture.so,
-			&all->pars.texture.tbpp[1], &all->pars.texture.tsize_l[1], &all->pars.texture.tendian[1]);
-	all->pars.textadd.ea = mlx_get_data_addr(all->pars.texture.ea,
-			&all->pars.texture.tbpp[2], &all->pars.texture.tsize_l[2], &all->pars.texture.tendian[2]);
-	all->pars.textadd.we = mlx_get_data_addr(all->pars.texture.we,
-			&all->pars.texture.tbpp[3], &all->pars.texture.tsize_l[3], &all->pars.texture.tendian[3]);
-	all->pars.textadd.sp = mlx_get_data_addr(all->pars.texture.sp,
-			&all->pars.texture.tbpp[4], &all->pars.texture.tsize_l[4], &all->pars.texture.tendian[4]);
+	if (!(all->pars.textadd.no = mlx_get_data_addr(all->pars.texture.no,
+			&all->pars.texture.tbpp[0], &all->pars.texture.tsize_l[0],
+			&all->pars.texture.tendian[0])))
+		ft_exit(3, 0);
+	if (!(all->pars.textadd.so = mlx_get_data_addr(all->pars.texture.so,
+			&all->pars.texture.tbpp[1], &all->pars.texture.tsize_l[1],
+			&all->pars.texture.tendian[1])))
+		ft_exit(3, 0);
+	if (!(all->pars.textadd.ea = mlx_get_data_addr(all->pars.texture.ea,
+			&all->pars.texture.tbpp[2], &all->pars.texture.tsize_l[2],
+			&all->pars.texture.tendian[2])))
+		ft_exit(3, 0);
+	if (!(all->pars.textadd.we = mlx_get_data_addr(all->pars.texture.we,
+			&all->pars.texture.tbpp[3], &all->pars.texture.tsize_l[3],
+			&all->pars.texture.tendian[3])))
+		ft_exit(3, 0);
+	if (!(all->pars.textadd.sp = mlx_get_data_addr(all->pars.texture.sp,
+			&all->pars.texture.tbpp[4], &all->pars.texture.tsize_l[4],
+			&all->pars.texture.tendian[4])))
+		ft_exit(3, 0);
 }
 
 
