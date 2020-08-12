@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:54:24 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/04 14:43:32 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/12 16:55:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,22 @@
 # define STRUCTURES_H
 
 /*
-**map structures
+**structure to save the bmp file
 */
+typedef struct	s_save
+{
+	int			fd;
+	int			size;
+	int			unused;
+	int			offset_begin;
+	int			header_bytes;
+	short int	plane;
+	short int	bpp;
+}				t_save;
 
-
+/*
+**texture structures
+*/
 typedef struct	s_txtr
 {
 	char	*no;
@@ -66,6 +78,8 @@ typedef struct	s_win
 	t_img	img;
 	int		height;
 	int		width;
+	int		maxh;
+	int		maxw;
 }				t_win;
 
 
@@ -78,21 +92,12 @@ typedef	struct s_mov
 	int		close;
 	int		turnl;
 	int		turnr;
+	int		speed;
 }				t_mov;
 
-
-typedef struct	s_vec
-{
-	double	x;
-	double	y;
-}				t_vec;
-
-typedef struct	s_sp
-{
-	double		x;
-	double		y;
-}				t_sp;
-
+/*
+**sprite structure
+*/
 typedef struct	s_spt
 {
 	double		x;
@@ -116,20 +121,33 @@ typedef struct	s_spt
 	int			texture;
 	int			i;
 }				t_spt;
+
+
 /*
-**p is the position of the player
-**dir is the direction vector of the player
-**plane is the plane vector (corresponds to half the plane)
-**raydir corresponds to the vector of the position of where the ray cuts the plane
+**player structures
+*/
+typedef struct	s_vec
+{
+	double	x;
+	double	y;
+}				t_vec;
+
+/*
+**-p is the position of the player
+**-dir is the direction vector of the player
+**-plane is the plane vector (corresponds to half the plane)
+**-raydir corresponds to the vector of the position of where the ray cuts the plane
 ** so the vector of the direction w the ray
-**map has the current square of the map the ray is in
-**deltadist is the ray distance between one y(or x) coord and the other
-**pwd is the var taht has the dist of the wall
-**hit records if there was a wall
-**side records which side (NS/EW) was hit
-**sidedist is the dist from the ray start position to the first side (x or y)
-**step is to know whether the ray is going in a positive or negative dir. is 1 or -1
-**
+**-map has the current square of the map the ray is in
+**-deltadist is the ray distance between one y(or x) coord and the other
+**-pwd is the var taht has the dist of the wall
+**-hit records if there was a wall
+**-side records which side (NS/EW) was hit
+**-sidedist is the dist from the ray start position to the first side (x or y)
+**-step is to know whether the ray is going in a positive or negative dir. is 1 or -1
+**-mov is the structure to know if a key is being pressed
+**-wallx, textx, texty are for textures
+**-speed and rotspeed are for speed change
 */
 typedef struct	s_play
 {
@@ -137,8 +155,6 @@ typedef struct	s_play
 	t_vec	dir;
 	t_vec	plane;
 	t_vec	raydir;
-	double	speed;
-	double	rotspeed;
 	int		mapx;
 	int		mapy;
 	t_vec	deltadist;
@@ -152,21 +168,19 @@ typedef struct	s_play
 	double	wallx;
 	int		textx;
 	int		texty;
+	double	speed;
+	double	rotspeed;
 }				t_play;
 
 /*
-**big boy des structures
-**pars: done
-**win: malloc?
-**player: no need to malloc
-**mm: malloc?
+**master structure
 */
 typedef struct	s_all
 {
 	t_pars	pars;
 	t_win	win;
 	t_play	player;
-	t_sp	sp[50];
+	t_vec	sp[50];
 	t_spt	spt;
 	double	*zbuff;
 	int		save;

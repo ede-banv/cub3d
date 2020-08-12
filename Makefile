@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+         #
+#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/07/31 17:04:32 by ede-banv         ###   ########.fr        #
+#    Updated: 2020/08/12 16:57:09 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 DEBUG = -g3 -fsanitize=address
 
-MLX_FLAGS = -lft -lmlx -framework OpenGL -framework AppKit
-MLX_PATH = ./minilibx_opengl_20191021/
-#MLX_FLAGS = -lft -lmlx -lX11 -lbsd -lXext
-#MLX_PATH = ./minilibx-linux/
+#MLX_FLAGS = -lft -lmlx -framework OpenGL -framework AppKit
+#MLX_PATH = ./minilibx_opengl_20191021/
+MLX_FLAGS = -lm -lft -lmlx -lX11 -lbsd -lXext
+MLX_PATH = ~/minilibx-linux/
 MLX_NAME = libmlx.a
 
 PARSING_PATH = parsing/
@@ -37,7 +37,7 @@ TRACING = tracing.c tracing_draw.c tracing_move.c tracing_keys.c tracing_sprites
 SRCS_TRC = ${addprefix ${TRACING_PATH}, ${TRACING}}
 
 SRCS_PATH = ./srcs/
-SRCS = start.c errorexit.c main.c ${SRCS_PARSING} ${SRCS_UTILS} ${SRCS_TRC}
+SRCS = start.c errorexit.c main.c save.c ${SRCS_PARSING} ${SRCS_UTILS} ${SRCS_TRC}
 
 LIBFT_PATH = ./libft/
 LIBFT = libft.a

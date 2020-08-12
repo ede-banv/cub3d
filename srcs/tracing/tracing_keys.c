@@ -31,6 +31,8 @@ int		ft_ispressed(int key, void *param)
 		all->player.mov.turnr = 1;
 	if (key == ESC_KEY)
 		all->player.mov.close = 1;
+	if (key == SHIFT_KEY)
+		all->player.mov.speed = 1;
 	return (0);
 }
 
@@ -53,6 +55,8 @@ int		ft_isdone(int key, void *param)
 		all->player.mov.turnr = 0;
 	if (key == ESC_KEY)
 		all->player.mov.close = 0;
+	if (key == SHIFT_KEY)
+		all->player.mov.speed = 0;
 	return (0);
 }
 
@@ -83,6 +87,21 @@ int		ft_iskill(void *param)
 	return (1);
 }
 
+int	ft_speed_change(t_play *py)
+{
+	if (py->mov.speed == 1)
+	{
+		py->speed = FAST_STEP;
+		py->rotspeed = FAST_ROT;
+	}
+	else
+	{
+		py->speed = FOOT_STEP;
+		py->speed = ROT_SPEED;
+	}
+	return (0);
+}
+
 int		deal_key(void *param)
 {
 	t_all *all;
@@ -101,7 +120,8 @@ int		deal_key(void *param)
 	if (all->player.mov.turnr)
 		ft_turn(&all->player, 1);
 	if (all->player.mov.close == 1)
-		exit(0);
+		ft_iskill(all);
+	ft_speed_change(&all->player);
 	if (!(all->zbuff = malloc(sizeof(double) * all->pars.res[0])))
 		ft_exit(3,0);
 	ft_raycast(all);
@@ -119,4 +139,5 @@ void	ft_init_keys(t_play *py)
 	py->mov.turnl = 0;
 	py->mov.turnr = 0;
 	py->mov.close = 0;
+	py->mov.speed = 0;
 }

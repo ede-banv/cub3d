@@ -13,6 +13,7 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
+/*
 //mac
 //ARROW POUR TOURNER
 # define ARROW_LEFT 123
@@ -27,8 +28,10 @@
 
 
 # define ESC_KEY 53
-/*
-//LINUX
+# define SHIFT_KEY 257 //speed button
+# define SPACE_KEY 49
+
+//LINUX not VM
 # define ARROW_LEFT 65361
 # define ARROW_RIGHT  65363
 
@@ -41,9 +44,16 @@
 # define ESC_KEY 65307
 */
 
-//mac
-# define SHIFT_KEY 257 //speed button
-# define SPACE_KEY 49
+//VM
+# define W_KEY 119
+# define A_KEY 97
+# define D_KEY 100
+# define S_KEY 115
+
+# define ESC_KEY 65307
+# define ARROW_LEFT 65361
+# define ARROW_RIGHT 65363
+# define SHIFT_KEY 65505
 
 //for res (a changer avec le get screen size)
 # define MAXRES_X 2560
@@ -51,7 +61,7 @@
 //speed
 # define FOOT_STEP 0.09
 # define FAST_STEP 0.15
-# define ROT_SPEED 0.05
+# define ROT_SPEED 0.03
 # define FAST_ROT 0.08
 
 # define TEXWIDTH 64
@@ -69,7 +79,7 @@ void	startprogram(char *file, int n);
 */
 void	parsing(t_all *all, int fd);
 void	ft_tri(char *res, t_pars *pars, t_all *all);
-int		ft_resolution(t_pars *pars, char **res, int *inst);
+int		ft_resolution(t_pars *pars, char **res, int *inst, t_all *all);
 int		ft_textures(t_pars *pars, char **res, int *inst, t_all *all);
 int		ft_textno(t_pars *pars, char **res, int *inst, t_all *all);
 int		ft_textwe(t_pars *pars, char **res, int *inst, t_all *all);

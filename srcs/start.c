@@ -19,7 +19,7 @@ void	ft_tri(char *res, t_pars *pars, t_all *all)
 	skipspace(&res, 2);
 	if (*res == 'R')
 	{
-		if (ft_resolution(pars, &res, instances) == -1)
+		if (ft_resolution(pars, &res, instances, all) == -1)
 			ft_exit(2, 1);
 	}
 	else if (*res == 'N' || *res == 'S' || *res == 'W' || *res == 'E')
@@ -42,10 +42,8 @@ void	ft_tri(char *res, t_pars *pars, t_all *all)
 int		ft_checkline(char *data, char *pars)
 {
 	int	i;
-//	int	j;
 
 	i = 0;
-//	j = 0;
 	while (data[i])
 	{
 		if (ft_strchr(pars, (int)data[i]))
@@ -89,6 +87,9 @@ void	ft_init(t_all *all)
 	all->player.speed = FOOT_STEP;
 	all->player.rotspeed = ROT_SPEED;
 	ft_init_keys(&all->player);
+	if (!(mlx_get_screen_size(all->win.mlx_ptr,
+		&all->win.maxw, &all->win.maxh)))
+		ft_exit(3, 0);
 }
 
 void	startprogram(char *file, int n)
@@ -108,12 +109,8 @@ void	startprogram(char *file, int n)
 	parsing(all, fd);
 	ft_init_text(all);
 	close(fd);
-	ft_graphic(all);
-	/*
-	**this should return a fully malloqued & filled pars structure OR just exit by itself.
-	**as well as the player info partially filled.
-	**so next to do:
-	** create a window & image if n == 1 save
-	** do calculs lol
-	*/
+	if (n == 2)
+		ft_save(all);
+	else
+		ft_graphic(all);
 }
