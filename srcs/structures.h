@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:54:24 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/12 16:55:40 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/14 16:09:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,8 @@ typedef struct	s_all
 	t_vec	sp[50];
 	t_spt	spt;
 	double	*zbuff;
-	int		save;
+	t_save	save;
+	int		s;
 
 }				t_all;
 

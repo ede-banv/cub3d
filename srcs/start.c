@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/04 14:46:19 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/14 16:10:59 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	parsing(t_all *all, int fd)
 void	ft_init(t_all *all)
 {
 	all->pars.sp = 0;
-	all->save = 0;
+	all->s = 0;
 	all->player.speed = FOOT_STEP;
 	all->player.rotspeed = ROT_SPEED;
 	ft_init_keys(&all->player);
@@ -104,13 +104,14 @@ void	startprogram(char *file, int n)
 	if (!(all->win.mlx_ptr = mlx_init()))
 		ft_exit(3, 4);
 	ft_init(all);
-	if (n == 2)
-		all->save = 1;
 	parsing(all, fd);
 	ft_init_text(all);
 	close(fd);
 	if (n == 2)
+	{
+		all->s = 1;
 		ft_save(all);
+	}
 	else
 		ft_graphic(all);
 }

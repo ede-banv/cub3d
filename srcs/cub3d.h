@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/04 14:50:58 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/14 15:46:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void    ft_raycast(t_all *all);
 **sprites
 */
 void	ft_locspr(t_all *all);
-void	ft_sprites(t_all *all, t_sp *sp, int sp_nb);
+void	ft_sprites(t_all *all, t_vec *sp, int sp_nb);
 
 /*
 **keys and events
@@ -121,6 +121,7 @@ void	ft_moveright_left(t_play *py, t_pars *pars, int n);
 void	ft_moveup_down(t_play *py, t_pars *pars, int n);
 void	ft_turn(t_play *py, int n);
 
+int     ft_save(t_all *all);
 /*
 **error handling and freeing memory
 */

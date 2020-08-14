@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 13:53:33 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/28 20:39:37 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/14 15:17:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		checksave(char *save)
 	int		i;
 
 	i = 0;
-	arg = "-save";
+	arg = "--save";
 	if (!save)
 		return (-1);
 	while (save[i] == arg[i])

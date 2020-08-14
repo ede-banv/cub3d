@@ -42,7 +42,7 @@ void	ft_sptxt(t_all *all, t_spt *sptxt)
 	}
 }
 
-void	ft_calc_sp(t_all *all, t_spt *sptxt, t_sp *sp, int *sp_order)
+void	ft_calc_sp(t_all *all, t_spt *sptxt, t_vec *sp, int *sp_order)
 {
 	sptxt->x = sp[sp_order[sptxt->i]].x - all->player.p.x;
 	sptxt->y = sp[sp_order[sptxt->i]].y - all->player.p.y;
@@ -94,7 +94,7 @@ void	ft_check_sp_dist(int sp, int *sp_order, double *sp_dist)
 	}
 }
 
-void	ft_init_sp(t_all *all, t_sp *sp, double *sp_dist, int *sp_order)
+void	ft_init_sp(t_all *all, t_vec *sp, double *sp_dist, int *sp_order)
 {
 	int i;
 
@@ -110,7 +110,7 @@ void	ft_init_sp(t_all *all, t_sp *sp, double *sp_dist, int *sp_order)
 	ft_check_sp_dist(all->pars.sp, sp_order, sp_dist);
 }
 
-void	ft_sprites(t_all *all, t_sp *sp, int sp_nb)
+void	ft_sprites(t_all *all, t_vec *sp, int sp_nb)
 {
 	int			sp_order[sp_nb];
 	double		sp_dist[sp_nb];
@@ -124,5 +124,7 @@ void	ft_sprites(t_all *all, t_sp *sp, int sp_nb)
 		ft_sptxt(all, &sptxt);
 		sptxt.i--;
 	}
-	mlx_put_image_to_window(all->win.mlx_ptr, all->win.win_ptr, all->win.img.image, 0, 0);
+	if (all->s == 0)
+		mlx_put_image_to_window(all->win.mlx_ptr, all->win.win_ptr, 
+		all->win.img.image, 0, 0);
 }

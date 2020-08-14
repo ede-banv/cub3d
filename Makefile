@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/08/12 16:57:09 by user42           ###   ########.fr        #
+#    Updated: 2020/08/14 11:37:02 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Cub3D
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 DEBUG = -g3 -fsanitize=address
 
 #MLX_FLAGS = -lft -lmlx -framework OpenGL -framework AppKit
@@ -50,7 +50,7 @@ $(NAME): ${OBJS} ${OBJS_UTILS} ${OBJS_PARSING} ${MLX_PATH}${MLX_NAME} ${LIBFT_PA
 all: ${NAME}
 
 debug: all
-	${CC} ${CFLAGS} $(DEBUG) -o ${NAME} ${OBJS} -L ${MLX_PATH} -L ${LIBFT_PATH} -lft -lmlx -framework OpenGL -framework AppKit
+	${CC} ${CFLAGS} $(DEBUG) -o ${NAME} ${OBJS} -L ${MLX_PATH} -L ${LIBFT_PATH} ${MLX_FLAGS}
 
 $(LIBFT_PATH)$(LIBFT): ${LIBFT_PATH}libft.h
 	make -C ${LIBFT_PATH}
