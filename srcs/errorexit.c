@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errorexit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:05:18 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/02/28 20:55:48 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/17 16:16:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	ft_argerror(int n)
 		ft_putstr_fd("Incorrect second argument.\n", 2);
 	else if (n == 4)
 		ft_putstr_fd("Problem opening file.\n", 2);
+	else if  (n == 5)
+		ft_putstr_fd("Parsing error: invalid character in the document.", 2);
 	exit(EXIT_FAILURE);
 }
 

@@ -6,38 +6,11 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/14 16:10:59 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/17 16:30:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	ft_tri(char *res, t_pars *pars, t_all *all)
-{
-	static int	instances[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
-
-	skipspace(&res, 2);
-	if (*res == 'R')
-	{
-		if (ft_resolution(pars, &res, instances, all) == -1)
-			ft_exit(2, 1);
-	}
-	else if (*res == 'N' || *res == 'S' || *res == 'W' || *res == 'E')
-	{
-		if (ft_textures(pars, &res, instances, all) == -1)
-			ft_exit(2, 2);
-	}
-	else if (*res == 'F' || *res == 'C')
-	{
-		if (ft_colors(pars, &res, instances) == -1)
-			ft_exit(2, 3);
-	}
-/*	if (*res && !ft_checkline(res, " "))
-	    return ft_exit(2, 7);
-	else
-		return ;
-*/	return ;
-}
 
 int		ft_checkline(char *data, char *pars)
 {
@@ -54,6 +27,33 @@ int		ft_checkline(char *data, char *pars)
 	if (i == 0)
 		return (0);
 	return (1);
+}
+
+void	ft_tri(char *res, t_pars *pars, t_all *all)
+{
+	static int	instances[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+	
+	skipspace(&res, 2);
+	if (*res == 'R')
+	{
+		if (ft_resolution(pars, &res, instances, all) == -1)
+			ft_exit(2, 1);
+	}
+	else if (*res == 'N' || *res == 'S' || *res == 'W' || *res == 'E')
+	{
+		if (ft_textures(pars, &res, instances, all) == -1)
+			ft_exit(2, 2);
+	}
+	else if (*res == 'F' || *res == 'C')
+	{
+		if (ft_colors(pars, &res, instances) == -1)
+			ft_exit(2, 3);
+	}
+	else if (ft_checkline(res, "1 ") || *res == '\n' || *res == '\0')
+		return ;
+	else
+		ft_exit(1, 5);
+	
 }
 
 void	parsing(t_all *all, int fd)

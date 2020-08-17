@@ -1,3 +1,15 @@
+                   R                 34343 777777
+NO ./textures/barrel.xpm
+
+    SO    ./textures/table-chairs.xpm
+        EA  ./textures/east_wall.XPM
+    WE ./textures/west_wall.XPM
+
+
+    S               ./textures/lamp.xpm
+    C 138,43,226
+    F                176,196,222
+
 11111111111111
 10200000000001
 10000000000001111111111

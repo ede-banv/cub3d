@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 11:33:32 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/14 15:27:30 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/17 17:01:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	parsing_check(t_all *all)
 		if (ft_nonsquare(&all->pars) == -1)
 			ft_exit(2, 4);
 	}
-	else if (ft_position(all) == -1)
+	if (ft_position(all) == -1)
 		ft_exit(2, 9);
 	return ;
 }
