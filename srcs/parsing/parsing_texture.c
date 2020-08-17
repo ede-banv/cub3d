@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:29:08 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/14 15:46:10 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/17 15:50:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,13 @@ int		checkcolorc(t_pars *pars, char **res, int *inst)
 	tab = (char *)&pars->c;
 	if ((t = ft_checkcolor(res)) == -1)
 		return (-1);
-	tab[0] = t;
+	tab[2] = t;
 	if ((t = ft_checkcolor(res)) == -1)
 		return (-1);
 	tab[1] = t;
 	if ((t = ft_checkcolor(res)) == -1)
 		return (-1);
-	tab[2] = t;
+	tab[0] = t;
 	inst[7] += 1;
 	if (inst[7] > 1)
 		return (-1);

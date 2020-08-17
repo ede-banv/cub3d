@@ -3,30 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   tracing_move.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 00:17:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/05 16:44:23 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/17 15:41:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+int		ft_compare(int n)
+{
+	if (n == 1 || n == 2)
+		return (0);
+	return (1);
+}
 
 void	ft_moveup_down(t_play *py, t_pars *pars, int n)
 {
 	if (n == 1) //up
 	{
 
-		if (pars->map[(int)(py->p.y + py->dir.y * py->speed)][(int)py->p.x] != 1)
+		if (ft_compare(pars->map[(int)(py->p.y + py->dir.y * py->speed)][(int)py->p.x]))
 			py->p.y += py->dir.y * py->speed;
-		if (pars->map[(int)py->p.y][(int)(py->p.x + py->dir.x * py->speed)] != 1)
+		if (ft_compare(pars->map[(int)py->p.y][(int)(py->p.x + py->dir.x * py->speed)]))
 			py->p.x += py->dir.x * py->speed;
 	}
 	else if (n == 2) //down
 	{
-		if (pars->map[(int)py->p.y][(int)(py->p.x - py->dir.x * py->speed)] != 1)
+		if (ft_compare(pars->map[(int)py->p.y][(int)(py->p.x - py->dir.x * py->speed)]))
 			py->p.x -= py->dir.x * py->speed;
-		if (pars->map[(int)(py->p.y - py->dir.y * py->speed)][(int)py->p.x] != 1)
+		if (ft_compare(pars->map[(int)(py->p.y - py->dir.y * py->speed)][(int)py->p.x]))
 			py->p.y -= py->dir.y * py->speed;
 	}
 }
@@ -35,16 +42,16 @@ void	ft_moveright_left(t_play *py, t_pars *pars, int n)
 {
 	if (n == 1) //right
 	{
-		if (pars->map[(int)(py->p.y + py->plane.y * py->speed)][(int)py->p.x] != 1)
+		if (ft_compare(pars->map[(int)(py->p.y + py->plane.y * py->speed)][(int)py->p.x]))
 			py->p.y += py->plane.y * py->speed;
-		if (pars->map[(int)py->p.y][(int)(py->p.x + py->plane.x * py->speed)] != 1)
+		if (ft_compare(pars->map[(int)py->p.y][(int)(py->p.x + py->plane.x * py->speed)]))
 			py->p.x += py->plane.x * py->speed;
 	}
 	else if (n == 2) //left
 	{
-		if (pars->map[(int)py->p.y][(int)(py->p.x - py->plane.x * py->speed)] != 1)
+		if (ft_compare(pars->map[(int)py->p.y][(int)(py->p.x - py->plane.x * py->speed)]))
 			py->p.x -= py->plane.x * py->speed;
-		if (pars->map[(int)(py->p.y - py->plane.y * py->speed)][(int)py->p.x] != 1)
+		if (ft_compare(pars->map[(int)(py->p.y - py->plane.y * py->speed)][(int)py->p.x]))
 			py->p.y -= py->plane.y * py->speed;
 	}
 }
