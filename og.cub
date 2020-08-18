@@ -10,7 +10,7 @@ EA ./textures/east_wall.XPM
 S ./textures/skeleton.xpm
 F 220,100,0
 
-C 225,30,0
+C 225,          30    ,0
 
 
 11111111111111111111111111111

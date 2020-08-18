@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/08/14 11:37:02 by user42           ###   ########.fr        #
+#    Updated: 2020/08/18 15:38:22 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,15 +25,16 @@ MLX_NAME = libmlx.a
 
 PARSING_PATH = parsing/
 PARSING = parsing_data.c parsing_texture.c parsing_map.c parsing_check.c \
-parsing_end.c parsing_sprite.c
+parsing_end.c parsing_sprite.c parsing_color.c
 SRCS_PARSING = ${addprefix ${PARSING_PATH}, ${PARSING}}
 
 UTILS_PATH = utils/
-UTILS = get_next_line.c get_next_line_utils.c ft_atoipositif.c
+UTILS = get_next_line.c get_next_line_utils.c ft_atoipositif.c ft_init.c
 SRCS_UTILS = ${addprefix ${UTILS_PATH}, ${UTILS}}
 
 TRACING_PATH = tracing/
-TRACING = tracing.c tracing_draw.c tracing_move.c tracing_keys.c tracing_sprites.c
+TRACING = tracing.c tracing_draw.c tracing_move.c tracing_keys.c tracing_sprites.c \
+tracing_raycast.c
 SRCS_TRC = ${addprefix ${TRACING_PATH}, ${TRACING}}
 
 SRCS_PATH = ./srcs/

@@ -6,25 +6,25 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 15:04:17 by user42            #+#    #+#             */
-/*   Updated: 2020/08/18 15:29:35 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 16:15:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int		check_commas(t_pars *pars, char **res)
+int		check_commas(char **res)
 {
 	int i;
 	int	comma;
 
 	i = 0;
 	comma = 2;
-	while (*res[i])
+	while ((*res)[i])
 	{
-		if (*res[i] == ',')
+		if ((*res)[i] == ',')
 			comma--;
-		else if ((ft_isdigit(*res[i]) == 0 && *res[i] != ','
-		&& *res[i] != ' ') || comma < 0)
+		else if ((ft_isdigit((*res)[i]) == 0 && (*res)[i] != ','
+		&& (*res)[i] != ' ') || comma < 0)
 			return (-1);
 		i++;
 	}
@@ -37,7 +37,7 @@ int		ft_checkcolor(char **res)
 
 	skipspace(res, 2);
 	if (**res == ',')
-		*res++;
+		(*res)++;
 	if ((t = ft_atoipositif(res)) == -1)
 		return (-1);
 	else if (t >= 0 && t <= 255)
@@ -66,10 +66,11 @@ int		ft_colors(t_pars *pars, char **res, int *inst)
 
 	j = 2;
 	c = 0;
-	if (!check_commas(pars, res))
-		return (-1);
 	if (**res == 'F' || (**res == 'C' && (c = 1)))
 	{
+		(*res)++;
+		if (check_commas(res) == -1)
+			return (-1);
 		tab = c == 1 ? (char *)&pars->c : (char *)&pars->f;
 		while (j >= 0)
 		{

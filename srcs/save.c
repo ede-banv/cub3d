@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 15:27:48 by user42            #+#    #+#             */
-/*   Updated: 2020/08/18 14:26:17 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 15:34:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	ft_bmp_info_header(t_all *all, int fd, unsigned int wr)
 	return (ret);
 }
 
-static int	ft_write_bmp(t_all *all, int fd)
+int			ft_write_bmp(t_all *all, int fd)
 {
 	int ret;
 

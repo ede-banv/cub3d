@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 14:58:35 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/18 13:48:24 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 15:36:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_draw_ns(int i, t_play *py, t_all *all, int j)
 			py->texty = abs((((all->win.img.dstart++ * 256 - all->pars.res[1] *
 			128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
 			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i],
-			all->pars.textadd.so[py->texty % 64 * all->pars.texture.tsize_l[1] +
+			&all->pars.textadd.so[py->texty % 64 * all->pars.texture.tsize_l[1] +
 			(63 - py->textx % 64) * all->pars.texture.tbpp[1] / 8],
 			sizeof(int));
 		}
@@ -50,7 +50,7 @@ void	ft_draw_ns(int i, t_play *py, t_all *all, int j)
 			py->texty = abs((((all->win.img.dstart++ * 256 - all->pars.res[1] *
 			128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
 			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i],
-			all->pars.textadd.no[py->texty % 64 * all->pars.texture.tsize_l[0] +
+			&all->pars.textadd.no[py->texty % 64 * all->pars.texture.tsize_l[0] +
 			(63 - py->textx % 64) * all->pars.texture.tbpp[0] / 8],
 			sizeof(int));
 		}
@@ -66,7 +66,7 @@ void	ft_draw_ew(int i, t_play *py, t_all *all, int j)
 			py->texty = abs((((all->win.img.dstart++ * 256 - all->pars.res[1] *
 			128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
 			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i],
-			all->pars.textadd.ea[py->texty % 64 * all->pars.texture.tsize_l[2] +
+			&all->pars.textadd.ea[py->texty % 64 * all->pars.texture.tsize_l[2] +
 			(63 - py->textx % 64) * all->pars.texture.tbpp[2] / 8],
 			sizeof(int));
 		}
@@ -78,7 +78,7 @@ void	ft_draw_ew(int i, t_play *py, t_all *all, int j)
 			py->texty = abs((((all->win.img.dstart++ * 256 - all->pars.res[1] *
 			128 + all->win.img.lineh * 128) * 64) / all->win.img.lineh) / 256);
 			ft_memcpy(&all->win.img.data[j++ * all->pars.res[0] + i],
-			all->pars.textadd.we[py->texty % 64 * all->pars.texture.tsize_l[3] +
+			&all->pars.textadd.we[py->texty % 64 * all->pars.texture.tsize_l[3] +
 			(63 - py->textx % 64) * all->pars.texture.tbpp[3] / 8],
 			sizeof(int));
 		}

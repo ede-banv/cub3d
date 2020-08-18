@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 20:33:18 by softemma          #+#    #+#             */
-/*   Updated: 2020/08/18 14:01:03 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 15:38:01 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,13 +108,13 @@ int		deal_key(void *param)
 
 	all = (t_all *)param;
 	if (all->player.mov.up == 1)
-		ft_moveup_down(&all->player, &all->pars.map, 1);
+		ft_moveup_down(&all->player, all->pars.map, 1);
 	if (all->player.mov.down == 1)
-		ft_moveup_down(&all->player, &all->pars.map, 2);
+		ft_moveup_down(&all->player, all->pars.map, 2);
 	if (all->player.mov.left == 1)
-		ft_moveright_left(&all->player, &all->pars.map, 2);
+		ft_moveright_left(&all->player, all->pars.map, 2);
 	if (all->player.mov.right == 1)
-		ft_moveright_left(&all->player, &all->pars.map, 1);
+		ft_moveright_left(&all->player, all->pars.map, 1);
 	if (all->player.mov.turnl == 1)
 		ft_turn(&all->player, 2);
 	if (all->player.mov.turnr)

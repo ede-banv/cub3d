@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/18 14:34:43 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 15:34:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void		ft_moveup_down(t_play *py, int **map, int n);
 void		ft_turn(t_play *py, int n);
 
 int			ft_save(t_all *all);
-static int	ft_write_bmp(t_all *all, int fd);
+int			ft_write_bmp(t_all *all, int fd);
 void		ft_end_save(t_all *all);
 void		ft_free_map(t_all *all);
 
