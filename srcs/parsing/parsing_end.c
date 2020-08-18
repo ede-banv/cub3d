@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 14:52:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/18 11:49:44 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 16:30:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,7 @@ int		ft_joueur(t_all *all, int *count, char c)
 		ft_assign(all, -1, -0.66, 3);
 	else if (c == 'E')
 		ft_assign(all, 1, 0.66, 3);
-	if (*count == 0)
-		(*count)++;
+	(*count)++;
 	return (*count == 1 ? 1 : -1);
 }
 
@@ -91,5 +90,5 @@ int		ft_position(t_all *all)
 		}
 		i++;
 	}
-	return (count == 0 ? -1 : 1);
+	return (count == 1 ? 1 : -1);
 }
