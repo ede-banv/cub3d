@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:54:24 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/14 16:09:58 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 14:31:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,7 @@ typedef struct	s_win
 	int		maxw;
 }				t_win;
 
-
-typedef	struct s_mov
+typedef	struct	s_mov
 {
 	int		up;
 	int		down;
@@ -122,7 +121,6 @@ typedef struct	s_spt
 	int			i;
 }				t_spt;
 
-
 /*
 **player structures
 */
@@ -136,15 +134,15 @@ typedef struct	s_vec
 **-p is the position of the player
 **-dir is the direction vector of the player
 **-plane is the plane vector (corresponds to half the plane)
-**-raydir corresponds to the vector of the position of where the ray cuts the plane
-** so the vector of the direction w the ray
+**-raydir corresponds to the vector of the position of where the ray cuts
+** the plane. so the vector of the direction w the ray
 **-map has the current square of the map the ray is in
 **-deltadist is the ray distance between one y(or x) coord and the other
 **-pwd is the var taht has the dist of the wall
 **-hit records if there was a wall
 **-side records which side (NS/EW) was hit
 **-sidedist is the dist from the ray start position to the first side (x or y)
-**-step is to know whether the ray is going in a positive or negative dir. is 1 or -1
+**-step is to know whether the ray is going in a positive or negative dir.
 **-mov is the structure to know if a key is being pressed
 **-wallx, textx, texty are for textures
 **-speed and rotspeed are for speed change

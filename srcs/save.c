@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 15:27:48 by user42            #+#    #+#             */
-/*   Updated: 2020/08/17 14:56:16 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 14:26:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,63 +61,42 @@ static int	ft_write_bmp(t_all *all, int fd)
 	return (ret);
 }
 
-void        ft_free_map(t_all *all)
+void		ft_free_map(t_all *all)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (all->pars.map[i])
-    {
-        free (all->pars.map[i]);
-        all->pars.map[i] = NULL;
-        i++;
-    }
-    free(all->pars.map);
-    free(all->pars.w);
+	i = 0;
+	while (all->pars.map[i])
+	{
+		free(all->pars.map[i]);
+		all->pars.map[i] = NULL;
+		i++;
+	}
+	free(all->pars.map);
+	free(all->pars.w);
 }
 
-void        ft_end_save(t_all *all)
+void		ft_end_save(t_all *all)
 {
-    if (!(mlx_destroy_image(all->win.mlx_ptr, all->win.img.image)))
-        ft_exit(3, 0);
-    if (!(mlx_destroy_image(all->win.mlx_ptr, all->pars.texture.no)))
-        ft_exit(3, 0);
-    if (!(mlx_destroy_image(all->win.mlx_ptr, all->pars.texture.so)))
-        ft_exit(3, 0);
-    if (!(mlx_destroy_image(all->win.mlx_ptr, all->pars.texture.we)))
-        ft_exit(3, 0);
-    if (!(mlx_destroy_image(all->win.mlx_ptr, all->pars.texture.ea)))
-        ft_exit(3, 0);
-    if (!(mlx_destroy_image(all->win.mlx_ptr, all->pars.texture.sp)))
-        ft_exit(3, 0);
-    all->pars.textadd.no = NULL;
-    all->pars.textadd.so = NULL;
-    all->pars.textadd.we = NULL;
-    all->pars.textadd.ea = NULL;
-    all->pars.textadd.sp = NULL;
-    free(all->win.mlx_ptr);
-    all->win.mlx_ptr = NULL;
-    ft_free_map(all);
-    free(all);
-}
-
-int         ft_save(t_all *all)
-{
-    if (!(all->win.img.image = mlx_new_image(all->win.mlx_ptr, 
-    all->pars.res[0], all->pars.res[1])))
-        ft_exit(3, 0);
-    if (!(all->win.img.data = (int *)mlx_get_data_addr(all->win.img.image, &all->win.img.bpp, 
-    &all->win.img.size_l, &all->win.img.endian)))
-        ft_exit(3, 0);
-    if ((all->save.fd = open("screen.bmp", O_WRONLY | O_CREAT | O_TRUNC,
-					S_IRWXU | S_IRGRP | S_IROTH)) < 0)
-        ft_exit(3, 3);
-    deal_key(all);
-    if (ft_write_bmp(all, all->save.fd) < 1)
-        ft_exit(3, 3);
-    if ((write(all->save.fd, all->win.img.data, all->pars.res[0] * all->pars.res[1] * 4)) < 1)
-        ft_exit(3, 3);
-    close(all->save.fd);
-    ft_end_save(all);
-    exit(0);
+	if (!(mlx_destroy_image(all->win.mlx_ptr, all->win.img.image)))
+		ft_exit(3, 0);
+	if (!(mlx_destroy_image(all->win.mlx_ptr, all->pars.texture.no)))
+		ft_exit(3, 0);
+	if (!(mlx_destroy_image(all->win.mlx_ptr, all->pars.texture.so)))
+		ft_exit(3, 0);
+	if (!(mlx_destroy_image(all->win.mlx_ptr, all->pars.texture.we)))
+		ft_exit(3, 0);
+	if (!(mlx_destroy_image(all->win.mlx_ptr, all->pars.texture.ea)))
+		ft_exit(3, 0);
+	if (!(mlx_destroy_image(all->win.mlx_ptr, all->pars.texture.sp)))
+		ft_exit(3, 0);
+	all->pars.textadd.no = NULL;
+	all->pars.textadd.so = NULL;
+	all->pars.textadd.we = NULL;
+	all->pars.textadd.ea = NULL;
+	all->pars.textadd.sp = NULL;
+	free(all->win.mlx_ptr);
+	all->win.mlx_ptr = NULL;
+	ft_free_map(all);
+	free(all);
 }

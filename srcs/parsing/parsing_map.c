@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 21:20:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/04 14:19:07 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/18 12:26:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-
-//a changer pour le nouveau parsing: les espaces peuvent etre vus comme des 1
-//donc les espaces entre les caracteres ne sont plus a prendre en compte
-//donc il faut revoir pour que ce soit un espace compte comme un 1
-//a verifier avec les gens
 int		newlen(char *str)
 {
 	int	i;
@@ -86,11 +81,13 @@ int		ft_checkmap(t_list **alst, t_all *all)
 	return (1);
 }
 
-t_list	*ft_map_other(t_list *alst, char *data, int len, int n, t_all *all)
+t_list	*ft_map_other(t_list *alst, char *data, int n, t_all *all)
 {
 	int		*tmp;
 	t_list	*lst;
+	int		len;
 
+	len = newlen(data);
 	if (!(tmp = ft_cleanline(data, len, all)))
 		ft_exit(3, 0);
 	if (!alst && n == 0)
@@ -127,7 +124,7 @@ void	ft_map(t_all *all, int fd, char *data)
 			ft_exit(2, 5);
 		if (len < 3)
 			ft_exit(2, 6);
-		alst = ft_map_other(alst, data, len, n, all);
+		alst = ft_map_other(alst, data, n, all);
 		(data && n == 1) ? free(data) : n++;
 	}
 	ft_checkmap(&alst, all);

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 14:52:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/17 17:01:22 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 11:49:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,34 @@ int		lastline(t_pars *pars)
 	return (1);
 }
 
-void	ft_assign(t_all *all, double dirx, double diry, double planex, double planey)
+void	ft_assign(t_all *all, double x, double y, int n)
 {
-	all->player.dir.x = dirx;
-	all->player.dir.y = diry;
-	all->player.plane.x = planex;
-	all->player.plane.y = planey;
+	if (n == 2)
+	{
+		all->player.dir.x = 0;
+		all->player.dir.y = y;
+		all->player.plane.x = x;
+		all->player.plane.y = 0;
+	}
+	else
+	{
+		all->player.dir.x = x;
+		all->player.dir.y = 0;
+		all->player.plane.x = 0;
+		all->player.plane.y = y;
+	}
 }
 
 int		ft_joueur(t_all *all, int *count, char c)
 {
 	if (c == 'N')
-		ft_assign(all, 0, -1, 0.66, 0);
+		ft_assign(all, 0.66, -1, 2);
 	else if (c == 'S')
-		ft_assign(all, 0, 1, -0.66, 0);
+		ft_assign(all, -0.66, 1, 2);
 	else if (c == 'W')
-		ft_assign(all, -1, 0, 0, -0.66);
+		ft_assign(all, -1, -0.66, 3);
 	else if (c == 'E')
-		ft_assign(all, 1, 0, 0, 0.66);
+		ft_assign(all, 1, 0.66, 3);
 	if (*count == 0)
 		(*count)++;
 	return (*count == 1 ? 1 : -1);

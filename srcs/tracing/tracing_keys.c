@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 20:33:18 by softemma          #+#    #+#             */
-/*   Updated: 2020/08/14 11:39:19 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 14:01:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		ft_iskill(void *param)
 	return (1);
 }
 
-int	ft_speed_change(t_play *py)
+int		ft_speed_change(t_play *py)
 {
 	if (py->mov.speed == 1)
 	{
@@ -108,13 +108,13 @@ int		deal_key(void *param)
 
 	all = (t_all *)param;
 	if (all->player.mov.up == 1)
-		ft_moveup_down(&all->player, &all->pars, 1);
+		ft_moveup_down(&all->player, &all->pars.map, 1);
 	if (all->player.mov.down == 1)
-		ft_moveup_down(&all->player, &all->pars, 2);
+		ft_moveup_down(&all->player, &all->pars.map, 2);
 	if (all->player.mov.left == 1)
-		ft_moveright_left(&all->player, &all->pars, 2);
+		ft_moveright_left(&all->player, &all->pars.map, 2);
 	if (all->player.mov.right == 1)
-		ft_moveright_left(&all->player, &all->pars, 1);
+		ft_moveright_left(&all->player, &all->pars.map, 1);
 	if (all->player.mov.turnl == 1)
 		ft_turn(&all->player, 2);
 	if (all->player.mov.turnr)
@@ -123,21 +123,9 @@ int		deal_key(void *param)
 		ft_iskill(all);
 	ft_speed_change(&all->player);
 	if (!(all->zbuff = malloc(sizeof(double) * all->pars.res[0])))
-		ft_exit(3,0);
+		ft_exit(3, 0);
 	ft_raycast(all);
 	ft_sprites(all, all->sp, all->pars.sp);
-	free (all->zbuff);
-	return(1);
-}
-
-void	ft_init_keys(t_play *py)
-{
-	py->mov.up = 0;
-	py->mov.down = 0;
-	py->mov.left = 0;
-	py->mov.right = 0;
-	py->mov.turnl = 0;
-	py->mov.turnr = 0;
-	py->mov.close = 0;
-	py->mov.speed = 0;
+	free(all->zbuff);
+	return (1);
 }

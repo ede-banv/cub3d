@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tracing_spites.c                                  :+:      :+:    :+:   */
+/*   tracing_sprites.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <ede-banv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/31 16:29:57 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/07/31 16:37:46 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/18 13:25:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,13 @@ void	ft_sptxt(t_all *all, t_spt *sptxt)
 		while (j < sptxt->draw_ey && sptxt->transform_y > 0 &&
 				sptxt->transform_y < all->zbuff[i])
 		{
-			sptxt->d = j * 256 - all->pars.res[1] * 128 + sptxt->spr_h
-			* 128;
+			sptxt->d = j * 256 - all->pars.res[1] * 128 + sptxt->spr_h * 128;
 			sptxt->texty = ((sptxt->d * TEXWIDTH) / sptxt->spr_h) / 256;
-			ft_memcpy(&pixel,
-					&all->pars.textadd.sp[sptxt->texty % 64 * all->pars.texture.tsize_l[4]
-					+ sptxt->textx % 64 * all->pars.texture.tbpp[4] / 8], sizeof(int));
+			ft_memcpy(&pixel, &all->pars.textadd.sp[sptxt->texty % 64 *
+			all->pars.texture.tsize_l[4] + sptxt->textx % 64 *
+			all->pars.texture.tbpp[4] / 8], sizeof(int));
 			if (pixel != 0 && pixel != -16777216 && pixel != 9961608)
-					ft_memcpy(&all->win.img.data[j * all->pars.res[0] + i],
+				ft_memcpy(&all->win.img.data[j * all->pars.res[0] + i],
 					&pixel, sizeof(int));
 			j++;
 		}
@@ -125,6 +124,6 @@ void	ft_sprites(t_all *all, t_vec *sp, int sp_nb)
 		sptxt.i--;
 	}
 	if (all->s == 0)
-		mlx_put_image_to_window(all->win.mlx_ptr, all->win.win_ptr, 
+		mlx_put_image_to_window(all->win.mlx_ptr, all->win.win_ptr,
 		all->win.img.image, 0, 0);
 }
