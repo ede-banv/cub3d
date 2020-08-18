@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 14:06:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/17 15:48:47 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 15:05:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,45 +76,5 @@ int		ft_textures(t_pars *pars, char **res, int *inst, t_all *all)
 	}
 	if (skippath(res) == -1)
 		return (-1);
-	return (1);
-}
-
-int		ft_checkcolor(char **res)
-{
-	int	t;
-
-	(*res)++;
-	if ((t = ft_atoipositif(res)) == -1)
-		return (-1);
-	else if (t >= 0 && t <= 255)
-		return (t);
-	else
-		return (-1);
-}
-
-int		ft_colors(t_pars *pars, char **res, int *inst)
-{
-	int		t;
-	char	*tab;
-
-	if (**res == 'F')
-	{
-		tab = (char *)&pars->f;
-		if ((t = ft_checkcolor(res)) == -1)
-			return (-1);
-		tab[2] = t;
-		if ((t = ft_checkcolor(res)) == -1)
-			return (-1);
-		tab[1] = t;
-		if ((t = ft_checkcolor(res)) == -1)
-			return (-1);
-		tab[0] = t;
-		inst[6] += 1;
-		if (inst[6] > 1)
-			return (-1);
-	}
-	else if (**res == 'C')
-		if (checkcolorc(pars, res, inst) == -1)
-			return (-1);
 	return (1);
 }

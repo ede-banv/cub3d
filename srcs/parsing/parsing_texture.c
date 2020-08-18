@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 16:29:08 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/17 16:28:57 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/18 15:05:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,27 +86,5 @@ int		ft_textsso(t_pars *pars, char **res, int *inst, t_all *all)
 				return (-1);
 		}
 	}
-	return (1);
-}
-
-int		checkcolorc(t_pars *pars, char **res, int *inst)
-{
-	int		t;
-	char	*tab;
-
-	(*res)++;
-	tab = (char *)&pars->c;
-	if ((t = ft_checkcolor(res)) == -1)
-		return (-1);
-	tab[2] = t;
-	if ((t = ft_checkcolor(res)) == -1)
-		return (-1);
-	tab[1] = t;
-	if ((t = ft_checkcolor(res)) == -1)
-		return (-1);
-	tab[0] = t;
-	inst[7] += 1;
-	if (inst[7] > 1)
-		return (-1);
 	return (1);
 }
