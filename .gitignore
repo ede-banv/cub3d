@@ -1,4 +1,4 @@
-minilibx*
+
 *.o
 a.out
 *.code-workspace

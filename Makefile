@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/08/18 15:38:22 by user42           ###   ########.fr        #
+#    Updated: 2020/08/26 15:11:41 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ NAME = Cub3D
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 DEBUG = -g3 -fsanitize=address
 
 #MLX_FLAGS = -lft -lmlx -framework OpenGL -framework AppKit
 #MLX_PATH = ./minilibx_opengl_20191021/
 MLX_FLAGS = -lm -lft -lmlx -lX11 -lbsd -lXext
-MLX_PATH = ~/minilibx-linux/
+MLX_PATH = ./minilibx-linux/
 MLX_NAME = libmlx.a
 
 PARSING_PATH = parsing/

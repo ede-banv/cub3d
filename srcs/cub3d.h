@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/18 15:34:31 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/26 15:11:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define TEXWIDTH 64
 
 # include "utils/utils.h"
-# include "mlx.h"
+# include "../minilibx-linux/mlx.h"
 
 /*
 **actual meat
