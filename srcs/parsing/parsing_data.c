@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 14:06:26 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/18 15:05:45 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/26 11:19:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int		ft_resolution(t_pars *pars, char **res, int *inst, t_all *all)
 		return (-1);
 	else if (t <= all->win.maxh)
 		pars->res[1] = t;
-	return (1);
+	skipspace(res, 2);
+	return ((**res == '\n' || **res == '\0') ? 1 : -1);
 }
 
 int		ft_textures(t_pars *pars, char **res, int *inst, t_all *all)

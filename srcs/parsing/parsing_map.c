@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 21:20:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/18 12:26:33 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/26 13:36:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		*ft_cleanline(char *str, int len, t_all *all)
 		str++;
 	}
 	if (final[0] != 1 || final[i - 1] != 1)
-		return (NULL);
+		ft_free((void **)&final);
 	return (final);
 }
 
@@ -89,7 +89,7 @@ t_list	*ft_map_other(t_list *alst, char *data, int n, t_all *all)
 
 	len = newlen(data);
 	if (!(tmp = ft_cleanline(data, len, all)))
-		ft_exit(3, 0);
+		ft_exit(2, 6);
 	if (!alst && n == 0)
 	{
 		if (!(alst = ft_lstnew(tmp, len)))

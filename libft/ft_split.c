@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: softemma <softemma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 18:05:31 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/04/27 15:38:51 by softemma         ###   ########.fr       */
+/*   Updated: 2020/08/26 13:33:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int		wrd_len(char const *s, char c)
 	return (i);
 }
 
-static char		**ft_free(char **tab)
+static char		**ft_free_split(char **tab)
 {
 	int i;
 
@@ -76,7 +76,7 @@ char			**ft_split(char const *s, char c)
 		else
 		{
 			if (!(res[i] = malloc(sizeof(res[i]) * (wrd_len(s, c) + 1))))
-				return (ft_free(res));
+				return (ft_free_split(res));
 			ft_strlcpy(res[i++], s, wrd_len(s, c) + 1);
 			while (*s != c && *s)
 				s++;

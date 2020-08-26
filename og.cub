@@ -8,7 +8,7 @@ WE ./textures/west_wall.XPM
 
 EA ./textures/east_wall.XPM
 S ./textures/skeleton.xpm
-F 220,100,0
+F 220                       ,100,0
 
 C 225,          30    ,0
 
