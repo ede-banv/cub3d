@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:06:49 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/26 11:33:02 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/26 14:01:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_checkline(char *data, char *pars)
 void	ft_tri(char *res, t_pars *pars, t_all *all)
 {
 	static int	instances[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
-	printf("%s\n", res);
+
 	skipspace(&res, 2);
 	if (*res == 'R')
 	{

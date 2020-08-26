@@ -3,17 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ede-banv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 17:35:55 by ede-banv          #+#    #+#             */
-/*   Updated: 2019/10/24 17:59:52 by ede-banv         ###   ########.fr       */
+/*   Updated: 2020/08/26 14:05:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#define ISWHITE str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
-#define SPACE str[i] == '\v' || str[i] == ' ' || str[i] == '\f'
+int	ft_iswhitespace_atoi(char n)
+{
+	if (n == '\t' || n == '\n' || n == '\r' || n == '\v' || n == ' '
+	|| n == '\f')
+		return (1);
+	return (0);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -24,7 +29,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	nb = 0;
 	sign = 1;
-	while (ISWHITE || SPACE)
+	while (ft_iswhitespace_atoi(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 17:37:33 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/26 13:32:15 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/26 14:00:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t					i;
+	size_t				i;
 	unsigned char		*ptr_dst;
 	unsigned char		*ptr_src;
 
