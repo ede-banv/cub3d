@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/19 20:55:42 by ede-banv          #+#    #+#              #
-#    Updated: 2020/08/26 15:11:41 by user42           ###   ########.fr        #
+#    Updated: 2020/08/26 18:24:20 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS_UTILS = ${addprefix ${UTILS_PATH}, ${UTILS}}
 
 TRACING_PATH = tracing/
 TRACING = tracing.c tracing_draw.c tracing_move.c tracing_keys.c tracing_sprites.c \
-tracing_raycast.c
+tracing_raycast.c tracing_synchro.c
 SRCS_TRC = ${addprefix ${TRACING_PATH}, ${TRACING}}
 
 SRCS_PATH = ./srcs/

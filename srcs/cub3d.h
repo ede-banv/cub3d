@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:49:52 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/26 15:11:07 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/26 18:20:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void		ft_wallcalc(t_all *all, int i);
 void		ft_drawvline(t_all *all, int i);
 void		ft_init_text(t_all *all);
 int			ft_texturedraw(t_all *all, int i, int j);
+void		clear_application(t_all *all);
+void		put_pixel(t_all *all, int *image, t_vec pos);
 
 /*
 **sprites
