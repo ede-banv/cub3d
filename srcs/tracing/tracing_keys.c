@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 20:33:18 by softemma          #+#    #+#             */
-/*   Updated: 2020/08/18 15:38:01 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/26 18:12:52 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,35 @@ int		ft_speed_change(t_play *py)
 	return (0);
 }
 
+void    put_pixel(t_all *all, int *image, t_vec pos)
+{
+        char    *tab;
+        int		color;
+        tab = (char *)&color;
+        tab[0] = 255;
+        tab[1] = 255;
+        tab[2] = 255;
+        image[(int)pos.y * all->pars.res[0] + (int)pos.x] = color;
+}
+
+void    clear_application(t_all *all)
+{
+        t_vec   pos;
+        pos.x = 0;
+        pos.y = 0;
+        mlx_do_sync(all->win.mlx_ptr);
+        while (pos.x < (size_t)all->pars.res[0])
+        {
+                pos.y = 0;
+                while (pos.y < (size_t)all->pars.res[1])
+                {
+                        put_pixel(all, all->win.img.data, pos);
+                        pos.y++;
+                }
+                pos.x++;
+        }
+}
+
 int		deal_key(void *param)
 {
 	t_all *all;
@@ -121,6 +150,7 @@ int		deal_key(void *param)
 		ft_turn(&all->player, 1);
 	if (all->player.mov.close == 1)
 		ft_iskill(all);
+	clear_application(all);
 	ft_speed_change(&all->player);
 	if (!(all->zbuff = malloc(sizeof(double) * all->pars.res[0])))
 		ft_exit(3, 0);

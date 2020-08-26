@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/31 16:29:57 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/26 13:57:43 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/26 16:23:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	ft_check_sp_dist(int sp, int *sp_order, double *sp_dist)
 			sp_order[i] = tmp_ordr;
 			i = -1;
 		}
-		else
+		//else
 			i++;
 	}
 }
