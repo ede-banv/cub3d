@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 21:20:28 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/26 13:36:56 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/27 12:25:42 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		newlen(char *str)
 	while (*str)
 	{
 		if (*str == '1' || *str == '0' || *str == '2' || *str == 'N' ||
-		*str == 'S' || *str == 'E' || *str == 'N' || *str == ' ')
+		*str == 'S' || *str == 'E' || *str == 'W' || *str == ' ')
 			i++;
 		str++;
 	}
@@ -38,7 +38,7 @@ int		*ft_cleanline(char *str, int len, t_all *all)
 	while (*str)
 	{
 		if (*str == '1' || *str == '0' || *str == '2' || *str == 'N'
-		|| *str == 'S' || *str == 'E' || *str == 'N')
+		|| *str == 'S' || *str == 'E' || *str == 'W')
 		{
 			final[i] = ft_isdigit(*str) ? *str - 48 : *str;
 			i++;
@@ -118,15 +118,17 @@ void	ft_map(t_all *all, int fd, char *data)
 	{
 		if (n == 1)
 			r = get_next_line(fd, &data);
-		if (ft_checkline(data, " 012NSWE"))
+		if (ft_checkline(data, " 012NSWE") && (data[0] == '1' || data[0] == ' '))
 			len = newlen(data);
+		else if (data[0] == '\0')
+			break ;
 		else
 			ft_exit(2, 5);
-		if (len < 3)
-			ft_exit(2, 6);
 		alst = ft_map_other(alst, data, n, all);
 		(data && n == 1) ? free(data) : n++;
 	}
+	if ((r == get_next_line(fd, &data)) == 1)
+		ft_exit(2, 5);
 	ft_checkmap(&alst, all);
 	ft_lstclear(&alst, NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:05:18 by ede-banv          #+#    #+#             */
-/*   Updated: 2020/08/18 16:29:53 by user42           ###   ########.fr       */
+/*   Updated: 2020/08/27 11:59:09 by ede-banv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_argerror(int n)
 	else if (n == 4)
 		ft_putstr_fd("Problem opening file.\n", 2);
 	else if (n == 5)
-		ft_putstr_fd("Parsing error: invalid character in the document.", 2);
+		ft_putstr_fd("Parsing error: invalid character in the document.\n", 2);
 	exit(EXIT_FAILURE);
 }
 
@@ -63,11 +63,11 @@ void	ft_parsingerror(int n)
 	else if (n == 6)
 		ft_putstr_fd("Map error: Please verify your map.\n", 2);
 	else if (n == 7)
-		ft_putstr_fd("Parsing error: Please check your .cub file.", 2);
+		ft_putstr_fd("Parsing error: Please check your .cub file.\n", 2);
 	else if (n == 8)
-		ft_putstr_fd("Parsing error: Please define every element", 2);
+		ft_putstr_fd("Parsing error: Please define every element\n", 2);
 	else if (n == 9)
-		ft_putstr_fd("Map error: Please inform the player position once", 2);
+		ft_putstr_fd("Map error: Please inform the player position once\n", 2);
 	exit(EXIT_FAILURE);
 }
 
