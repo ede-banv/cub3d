@@ -109,7 +109,6 @@ void	ft_map(t_all *all, int fd, char *data)
 	t_list	*alst;
 	int		r;
 	int		n;
-	int		len;
 
 	r = 1;
 	n = 0;
@@ -119,16 +118,14 @@ void	ft_map(t_all *all, int fd, char *data)
 		if (n == 1)
 			r = get_next_line(fd, &data);
 		if (ft_checkline(data, " 012NSWE") && (data[0] == '1' || data[0] == ' '))
-			len = newlen(data);
-		else if (data[0] == '\0')
+			newlen(data);
+		else if (data[0] == '\0' && ft_coucou(fd, data, &alst))
 			break ;
 		else
 			ft_exit(2, 5);
 		alst = ft_map_other(alst, data, n, all);
 		(data && n == 1) ? free(data) : n++;
 	}
-	if ((r == get_next_line(fd, &data)) == 1)
-		ft_exit(2, 5);
 	ft_checkmap(&alst, all);
 	ft_lstclear(&alst, NULL);
 }

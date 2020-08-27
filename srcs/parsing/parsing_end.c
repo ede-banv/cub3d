@@ -92,3 +92,17 @@ int		ft_position(t_all *all)
 	}
 	return (count == 1 ? 1 : -1);
 }
+
+int		ft_coucou(int fd, char *data, t_list **alst)
+{
+	int r;
+
+	ft_lstclear(alst, NULL);
+	ft_free((void **)&data);
+	if ((r = get_next_line(fd, &data)) == 1)
+	{
+		ft_free((void **)&data);
+		ft_exit(2, 5);
+	}
+	return (1);
+}
