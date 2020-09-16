@@ -104,5 +104,9 @@ int		ft_coucou(int fd, char *data, t_list **alst)
 		ft_free((void **)&data);
 		ft_exit(2, 5);
 	}
+	if (data)
+	{
+		ft_free((void **)&data);
+	}
 	return (1);
 }
