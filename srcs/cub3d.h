@@ -55,7 +55,7 @@ int			ft_checkcolor(char **res);
 int			checkcolorc(t_pars *pars, char **res, int *inst);
 int			ft_checkline(char *data, char *pars);
 void		ft_map(t_all *all, int fd, char *data);
-int         ft_coucou(int fd, char *data, t_list **alst);
+int			ft_coucou(int fd, char *data, t_list **alst);
 void		parsing_check(t_all *all);
 int			ft_position(t_all *all);
 int			lastline(t_pars *pars);

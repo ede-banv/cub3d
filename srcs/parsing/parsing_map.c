@@ -117,7 +117,8 @@ void	ft_map(t_all *all, int fd, char *data)
 	{
 		if (n == 1)
 			r = get_next_line(fd, &data);
-		if (ft_checkline(data, " 012NSWE") && (data[0] == '1' || data[0] == ' '))
+		if (ft_checkline(data, " 012NSWE") &&
+		(data[0] == '1' || data[0] == ' '))
 			newlen(data);
 		else if (data[0] == '\0' && ft_coucou(fd, data, &alst))
 			break ;

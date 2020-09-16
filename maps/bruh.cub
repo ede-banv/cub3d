@@ -1,15 +1,14 @@
-                   R                 34343 777777
-NO ./textures/barrel.xpm
+S ./textures/skeleton.xpm
+C 230,230,250
 
-    SO    ./textures/table-chairs.xpm
-        EA  ./textures/east_wall.XPM
-    WE ./textures/west_wall.XPM
+EA ./textures/green.xpm
+F 175,238,238
+R 700 800
 
+NO ./textures/north_wall.XPM
+WE ./textures/cyan.xpm
 
-    S               ./textures/lamp.xpm
-    C 138,43,226
-    F                176,196,222
-
+SO ./textures/bookshelf.xpm
 11111111111111
 10200000000001
 10000000000001111111111

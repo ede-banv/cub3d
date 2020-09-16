@@ -1,14 +1,13 @@
 
-
 R 1920 1080
-NO    ./textures/north_wall.XPM
+NO./textures/north_wall.XPM
 
 SO ./textures/bookshelf.xpm
 WE ./textures/west_wall.XPM
 
 EA ./textures/east_wall.XPM
 S ./textures/skeleton.xpm
-F 220                       ,100,0
+F 220,100,0
 
 C 225,          30    ,0
 
